@@ -8,7 +8,7 @@ export type WeatherApiResponse = {
 
 export class WeatherApiClient {
     private readonly apiKey: string;
-    private readonly baseUrl = 'http://api.weatherapi.com/v1';
+    private readonly baseUrl = 'https://api.weatherapi.com/v1';
 
     constructor(apiKey: string) {
         this.apiKey = apiKey;
