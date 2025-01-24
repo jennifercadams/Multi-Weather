@@ -1,7 +1,8 @@
 import * as React from "react";
+import MultiWeather from "~components/MultiWeather";
 
 export default () => (
   <>
-    <h1>MultiWeather</h1>
+    <MultiWeather />
   </>
 );
