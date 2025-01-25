@@ -20,8 +20,7 @@ const MultiWeather = () => {
             <h1>MultiWeather</h1>
             {locations.map((locationQuery, index) => {
                 const key = `LocationPanel${index}`;
-                const props = { key, apiKey, locationQuery };
-                return <LocationPanel {...props} />
+                return <LocationPanel key={key} apiKey={apiKey} locationQuery={locationQuery} />;
             })}
         </div>
     );
