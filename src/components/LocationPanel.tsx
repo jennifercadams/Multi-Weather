@@ -21,10 +21,11 @@ const LocationPanel = (props: LocationPanelProps) => {
 
     return (
         <div className="location-panel">
-            <h2>{currentData?.locationName}</h2>
+            <img className="condition-icon" src={currentData?.conditionIcon} />
+            <h2 className="location-name">{currentData?.locationName}</h2>
             <p>{currentData?.dateTime}</p>
             <p>{currentData?.temperature}</p>
-            <p>{currentData?.condition}</p>
+            <p>{currentData?.conditionText}</p>
         </div>
     );
 };
