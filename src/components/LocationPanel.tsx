@@ -20,13 +20,13 @@ const LocationPanel = (props: LocationPanelProps) => {
     }, []);
 
     return (
-        <div className='location-panel'>
+        <div className="location-panel">
             <h2>{currentData?.locationName}</h2>
             <p>{currentData?.dateTime}</p>
             <p>{currentData?.temperature}</p>
             <p>{currentData?.condition}</p>
         </div>
     );
-}
+};
 
 export default LocationPanel;

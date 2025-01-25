@@ -8,14 +8,14 @@ export type WeatherApiResponse = {
 
 export class WeatherApiClient {
     private readonly apiKey: string;
-    private readonly baseUrl = 'https://api.weatherapi.com/v1';
+    private readonly baseUrl = "https://api.weatherapi.com/v1";
 
     constructor(apiKey: string) {
         this.apiKey = apiKey;
     }
 
     public async getCurrent(location: string): Promise<WeatherApiResponse> {
-        const q = location.replace(/[^a-zA-Z0-9]/g, '');
+        const q = location.replace(/[^a-zA-Z0-9]/g, "");
         const url = `${this.baseUrl}/current.json?key=${this.apiKey}&q=${q}`;
 
         const response = await fetch(url)
@@ -36,7 +36,7 @@ export class WeatherApiClient {
                 };
             })
             .catch((error) => {
-                console.error('Error fetching current data:', error);
+                console.error("Error fetching current data:", error);
                 return {
                     error: true,
                 };
@@ -46,18 +46,18 @@ export class WeatherApiClient {
     }
 
     private formatDateTimeString(timeZone: string): string {
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
         const localDate = new Date();
-        const dateString = localDate.toLocaleDateString('en-US', { timeZone });
-        const [M,d] = dateString.split('/');
-        const timeString = localDate.toLocaleTimeString('en-US', { timeZone, timeZoneName:'short' });
+        const dateString = localDate.toLocaleDateString("en-US", { timeZone });
+        const [M,d] = dateString.split("/");
+        const timeString = localDate.toLocaleTimeString("en-US", { timeZone, timeZoneName:"short" });
         const [h,m,_,ampm,tz] = timeString.split(/[: ]/);
 
         return `${months[parseInt(M)]} ${d}, ${h}:${m} ${ampm} (${tz})`;
     }
 
     private formatTempString(tempC: string, tempF: string): string {
-        return `${tempC}° C | ${tempF}° F`
+        return `${tempC}° C | ${tempF}° F`;
     }
 }
