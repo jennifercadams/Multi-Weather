@@ -1,7 +1,8 @@
 export type WeatherApiResponse = {
     locationName?: string;
     dateTime?: string;
-    condition?: string;
+    conditionText?: string;
+    conditionIcon?: string;
     temperature?: string;
     error: boolean;
 }
@@ -27,13 +28,15 @@ export class WeatherApiClient {
                 return json;
             })
             .then((data) => {
-                return {
+                const weatherApiResponse: WeatherApiResponse = {
                     locationName: data.location.name,
                     dateTime: this.formatDateTimeString(data.location.tz_id),
-                    condition: data.current.condition.text,
+                    conditionText: data.current.condition.text,
+                    conditionIcon: data.current.condition.icon,
                     temperature: this.formatTempString(data.current.temp_c, data.current.temp_f),
                     error: false,
                 };
+                return weatherApiResponse;
             })
             .catch((error) => {
                 console.error("Error fetching current data:", error);
