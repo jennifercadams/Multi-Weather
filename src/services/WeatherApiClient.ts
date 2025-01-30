@@ -57,7 +57,7 @@ export class WeatherApiClient {
         const timeString = localDate.toLocaleTimeString("en-US", { timeZone, timeZoneName:"short" });
         const [h,m,_,ampm,tz] = timeString.split(/[: ]/);
 
-        return `${months[parseInt(M)]} ${d}, ${h}:${m} ${ampm} (${tz})`;
+        return `${months[parseInt(M) - 1]} ${d}, ${h}:${m} ${ampm} (${tz})`;
     }
 
     private formatTempString(tempC: string, tempF: string): string {
