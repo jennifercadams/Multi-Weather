@@ -29,9 +29,8 @@ const LocationSearch = () => {
     
     const getQueries = () => {
         const queries: string[] = [];
-        selections.forEach((selection) => {
-            const query = `${selection.Latitude},${selection.Longitude}`;
-            queries.push(query);
+        selections.forEach((selection) => {;
+            queries.push(selection.FullName);
         });
         return `q=${queries.join("&q=")}`;
     };
