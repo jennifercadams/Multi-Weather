@@ -41,8 +41,8 @@ const LocationSearch = () => {
 
     return (
         <div>
-            <h2>Search Locations</h2>
-            <form onSubmit={handleSearch}>
+            <h2 id="search-header">Search Locations</h2>
+            <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
                 <button id="search-button" type="submit">Search</button>
             </form>
@@ -53,7 +53,7 @@ const LocationSearch = () => {
                     </div>);
                 }) : 
             <p className="error">No results for search query</p>)}
-            <h2>Selected Locations</h2>
+            <h2 id="selected-header">Selected Locations</h2>
             {selections.map((location, index) => {
                 const key = `SelectedLocations${index}`;
                 return (<div className="selected-location" key={key}>
@@ -61,9 +61,11 @@ const LocationSearch = () => {
                     <button className="remove-button" onClick={() => handleRemove(index)}>X</button>
                 </div>);
             })}
-            <Link to={`/current?${getQueries()}`}>
-                <button id="continue-button" disabled={selections.length == 0}>Continue</button>
-            </Link>
+            <div id="continue-button">
+                <Link to={`/current?${getQueries()}`}>
+                    <button disabled={selections.length == 0}>Continue</button>
+                </Link>
+            </div>
         </div>
     );
 };
