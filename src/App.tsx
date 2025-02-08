@@ -1,7 +1,7 @@
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
-import LocationSearch from "~components/LocationSearch";
-import MultiWeather from "~components/MultiWeather";
+import LocationSearch from "~pages/LocationSearch";
+import MultiWeather from "~pages/MultiWeather";
 
 const App = () => (
   <BrowserRouter>

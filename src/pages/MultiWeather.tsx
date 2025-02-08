@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import LocationPanel from "./LocationPanel";
+import LocationPanel from "~components/LocationPanel";
 import { ApiService, Current } from "~services/ApiService";
 
 const MultiWeather = () => {
