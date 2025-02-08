@@ -11,6 +11,7 @@ const App = () => (
         <Route path="current" element={<MultiWeather />} />
       </Route>
     </Routes>
+    <p id="weather-api-credit">Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
   </BrowserRouter>
 );
 
