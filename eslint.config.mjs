@@ -27,7 +27,7 @@ const customRules = [
       "@stylistic/js": stylisticJs,
     },
     rules: {
-      "no-unused-vars": noUnusedConfig,
+      "no-unused-vars": "off",
       "no-undef": "warn",
       "@typescript-eslint/no-unused-vars": noUnusedConfig,
       "@stylistic/js/jsx-quotes": [ "error", "prefer-double" ],
