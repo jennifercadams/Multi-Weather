@@ -26,6 +26,10 @@ const LocationSearch = () => {
         setQuery("");
         setResults(null);
     };
+
+    const handleRemove = (index: number) => {
+        setSelections([...selections.slice(0, index), ...selections.slice(index + 1)]);
+    };
     
     const getQueries = () => {
         const queries: string[] = [];
@@ -54,6 +58,7 @@ const LocationSearch = () => {
                 const key = `SelectedLocations${index}`;
                 return (<div className="selected-location" key={key}>
                     <p>{location.FullName}</p>
+                    <button className="remove-button" onClick={() => handleRemove(index)}>X</button>
                 </div>);
             })}
             <Link to={`/current?${getQueries()}`}>
