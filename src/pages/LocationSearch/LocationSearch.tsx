@@ -1,46 +1,21 @@
 import * as React from "react";
-import { ChangeEvent, FormEvent, useState } from "react";
 import { Link } from "react-router";
-import { ApiService, SearchLocationResult } from "~services/ApiService";
+import useLocationSearch from "./useLocationSearch";
 
 const LocationSearch = () => {
-    const apiService = new ApiService();
-    const [ query, setQuery ] = useState("");
-    const [ results, setResults ] = useState<SearchLocationResult[] | null>(null);
-    const [ selections, setSelections ] = useState<SearchLocationResult[]>([]);
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setQuery(event.target.value);
-    };
-
-    const handleSearch = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        await apiService.searchLocation(query)
-            .then((searchResults) => {
-                setResults(searchResults);
-            });
-    };
-
-    const handleAdd = (location: SearchLocationResult) => {
-        setSelections([...selections, location]);
-        setQuery("");
-        setResults(null);
-    };
-
-    const handleRemove = (index: number) => {
-        setSelections([...selections.slice(0, index), ...selections.slice(index + 1)]);
-    };
-    
-    const getQueries = () => {
-        const queries: string[] = [];
-        selections.forEach((selection) => {;
-            queries.push(selection.FullName);
-        });
-        return `q=${queries.join("&q=")}`;
-    };
+    const {
+        query,
+        results,
+        selections,
+        handleChange,
+        handleSearch,
+        handleAdd,
+        handleRemove,
+        getQueries,
+    } = useLocationSearch();
 
     return (
-        <div>
+        <div id="location-search">
             <h2 id="search-header">Search Locations</h2>
             <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
