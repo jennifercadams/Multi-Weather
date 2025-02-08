@@ -6,7 +6,7 @@ import { ApiService, SearchLocationResult } from "~services/ApiService";
 const LocationSearch = () => {
     const apiService = new ApiService();
     const [ query, setQuery ] = useState("");
-    const [ results, setResults ] = useState<SearchLocationResult[]>([]);
+    const [ results, setResults ] = useState<SearchLocationResult[] | null>(null);
     const [ selections, setSelections ] = useState<SearchLocationResult[]>([]);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +24,7 @@ const LocationSearch = () => {
     const handleAdd = (location: SearchLocationResult) => {
         setSelections([...selections, location]);
         setQuery("");
-        setResults([]);
+        setResults(null);
     };
     
     const getQueries = () => {
@@ -42,12 +42,13 @@ const LocationSearch = () => {
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
                 <button id="search-button" type="submit">Search</button>
             </form>
-            {results.map((result, index) => {
-                const key = `SearchResult${index}`;
-                return (<div className="search-result" key={key}>
-                    <button onClick={() => handleAdd(result)}>{result.FullName}</button>
-                </div>);
-            })}
+            {results && (results.length > 0 ? results.map((result, index) => {
+                    const key = `SearchResult${index}`;
+                    return (<div className="search-result" key={key}>
+                        <button onClick={() => handleAdd(result)}>{result.FullName}</button>
+                    </div>);
+                }) : 
+            <p className="error">No results for search query</p>)}
             <h2>Selected Locations</h2>
             {selections.map((location, index) => {
                 const key = `SelectedLocations${index}`;
