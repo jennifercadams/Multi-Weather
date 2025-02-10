@@ -6,7 +6,7 @@ import MultiWeather from "~pages/MultiWeather/MultiWeather";
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/">
+      <Route path="/Multi-Weather/">
         <Route index element={<LocationSearch />} />
         <Route path="current" element={<MultiWeather />} />
       </Route>
