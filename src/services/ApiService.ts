@@ -1,5 +1,5 @@
 export class ApiService {
-    private readonly baseUrl = "https://localhost:7211";
+    private readonly baseUrl = "https://distance-tools.onrender.com/";
 
     public async searchLocation(locationQuery: string) {
         const url = `${this.baseUrl}/multiweather/searchlocation?q=${locationQuery}`;
