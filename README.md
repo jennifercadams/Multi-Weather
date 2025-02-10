@@ -1,62 +1,24 @@
-# Nano React App Default Typescript Template
+# Multi-Weather
 
-The default template project for [nano-react-app](https://github.com/nano-react-app/nano-react-app).
+A simple web app to display the local time and weather for multiple locations.
 
-- `npm start` — This will spawn a development server with a default port of `3000`.
-- `npm run build` — This will output a production build in the `dist` directory.
-- `npm run preview` — This will run the production build locally with a default port of `5173` (this will not work if you haven't generated the production build yet).
-- `npm run typecheck` — This will run `tsc --noEmit` which basically just typechecks your project.
-- `npm run typewatch` — This will run `tsc --noEmit --watch` which will typecheck your project as you make changes.
+## How It Works
 
-## Typechecking
+- On the landing page, search for a location. You can search by:
+    - postal code
+    - city name
+    - city plus state, province, region, or country
+    - latitude and longitude
+- Click the result you would like to add
+- Optionally, search for additional locations and add them
+- Click continue
+- The current time and weather will display for each selected location
+- Locations are stored in the url query string so that you can bookmark the page to visit later
 
-Unfortunately, ViteJS does not perform typechecking. So you will need to make use of the `typecheck` and `typewatch` scripts above.
+## Technology
 
-## Custom port
+Multi-Weather uses React for the front end and a .NET 8 web API for the back end.
 
-You can use the `-p` flag to specify a port for development. To do this, you can either run `npm start` with an additional flag:
+## Limitations
 
-```
-npm start -- --port 1234
-```
-
-Or edit the `start` script directly:
-
-```
-vite --port 1234
-```
-
-## Adding styles
-
-You can use CSS files with simple ES2015 `import` statements anywhere in your Javascript:
-
-```js
-import "./index.css";
-```
-
-## Babel transforms
-
-The Babel preset [babel-preset-nano-react-app](https://github.com/nano-react-app/babel-preset-nano-react-app) is used to support the same transforms that Create React App supports.
-
-The Babel configuration lives inside `package.json` and will override an external `.babelrc` file, so if you want to use `.babelrc` remember to delete the `babel` property inside `package.json`.
-
-
-## Deploy to GitHub Pages
-
-You can also deploy your project using GitHub pages.
-First install the `gh-pages` [package](https://github.com/tschaub/gh-pages):
-
-`npm i -D gh-pages`
-
-With Parcel's `--public-url` flag, use the following scripts for deployment:
-
-```
-"scripts": {
-  "start": "vite",
-  "build": "vite build",
-  "predeploy": "rm -rf dist && vite build",
-  "deploy": "gh-pages -d dist"
-},
-```
-
-Then follow the normal procedure in GitHub Pages and select the `gh-pages` branch.
+This is a hobby project and the back end is currently hosted using a free service. If the back end service is idle for a certain period of time, it will sleep until another request is made. This means that sometimes search results or weather data may take up to a minute to load.
