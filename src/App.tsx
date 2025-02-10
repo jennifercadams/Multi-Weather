@@ -1,18 +1,18 @@
 import * as React from "react";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { HashRouter, Routes, Route } from "react-router";
 import LocationSearch from "~pages/LocationSearch/LocationSearch";
 import MultiWeather from "~pages/MultiWeather/MultiWeather";
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
-      <Route path="/Multi-Weather/">
+      <Route path="/">
         <Route index element={<LocationSearch />} />
-        <Route path="current" element={<MultiWeather />} />
+        <Route path="current/*" element={<MultiWeather />} />
       </Route>
     </Routes>
     <p id="weather-api-credit">Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;

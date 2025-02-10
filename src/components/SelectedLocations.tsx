@@ -26,7 +26,7 @@ const SelectedLocations = (props: SelectedLocationsProps) => {
                 </div>);
             })}
             <div id="continue-button">
-                <Link to={`/Multi-Weather/current?${getQueries()}`}>
+                <Link to={`/current/?${getQueries()}`}>
                     <button disabled={selections.length == 0}>Continue</button>
                 </Link>
             </div>

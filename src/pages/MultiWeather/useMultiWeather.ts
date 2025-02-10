@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import { ApiService, Current } from "~services/ApiService";
 
 const useMultiWeather = () => {
     const apiService = new ApiService();
     const [ locations, setLocations ] = useState<Current[]>([]);
+    const [ searchParams ] = useSearchParams();
 
     useEffect(() => {
         async function getCurrentData() {
@@ -11,9 +13,7 @@ const useMultiWeather = () => {
             setLocations(data);
         }
 
-        const queryString = location.search;
-        const queryParams = new URLSearchParams(queryString);
-        const locationNames = queryParams.getAll("q") || [];
+        const locationNames = searchParams.getAll("q") || [];
         getCurrentData().then();
     }, []);
 
