@@ -37,3 +37,7 @@ img.condition-icon {
 #continue-button {
     margin: 24px 0;
 }
+
+.error {
+    color:red
+}

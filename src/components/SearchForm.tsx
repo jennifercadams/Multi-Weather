@@ -31,7 +31,7 @@ const SearchForm = (props: SearchFormProps) => {
                     <button onClick={() => handleAdd(result)}>{result.FullName}</button>
                 </div>);
             }) : 
-            <p className="error">No results for search query</p>)}
+            <p className="error">No results for search query.</p>)}
         </div>
     );
 };
