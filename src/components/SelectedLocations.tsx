@@ -18,6 +18,7 @@ const SelectedLocations = (props: SelectedLocationsProps) => {
     return (
         <div id="selected-locations">
             <h2 id="selected-header">Selected Locations</h2>
+            <p>Add one or more locations above and click continue.</p>
             {selections.length > 0 &&
             selections.map((location, index) => {
                 const key = `SelectedLocations${index}`;
