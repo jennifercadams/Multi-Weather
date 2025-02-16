@@ -1,7 +1,7 @@
 import * as React from "react";
 import useLocationSearch from "./useLocationSearch";
-import SearchForm from "~components/SearchForm";
-import SelectedLocations from "~components/SelectedLocations";
+import SearchForm from "~components/SearchForm/SearchForm";
+import SelectedLocations from "~components/SelectedLocations/SelectedLocations";
 
 const LocationSearch = () => {
     const {

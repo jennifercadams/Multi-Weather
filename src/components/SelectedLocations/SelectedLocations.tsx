@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router";
 import { SearchLocationResult } from "~services/ApiService";
+import "./SelectedLocations.css";
 
 export type SelectedLocationsProps = {
     selections: SearchLocationResult[];

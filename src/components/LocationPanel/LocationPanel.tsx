@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./LocationPanel.css";
 
 export type LocationPanelProps = {
     locationName: string;

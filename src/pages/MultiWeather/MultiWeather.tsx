@@ -1,5 +1,5 @@
 import * as React from "react";
-import LocationPanel from "~components/LocationPanel";
+import LocationPanel from "~components/LocationPanel/LocationPanel";
 import useMultiWeather from "./useMultiWeather";
 
 const MultiWeather = () => {
