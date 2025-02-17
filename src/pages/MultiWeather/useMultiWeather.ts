@@ -33,7 +33,7 @@ const useMultiWeather = () => {
     };
 
     const formatTempString = (tempC?: number, tempF?: number): string => {
-        if (!tempC || !tempF)
+        if (!tempC && !tempF)
             return "";
         return `${tempC}° C | ${tempF}° F`;
     };
