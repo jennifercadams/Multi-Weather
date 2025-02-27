@@ -3,6 +3,7 @@ import { ApiService, SearchLocationResult } from "~services/ApiService";
 
 const useLocationSearch = () => {
     const apiService = new ApiService();
+    const [ isLoading, setIsLoading ] = useState(false);
     const [ query, setQuery ] = useState("");
     const [ results, setResults ] = useState<SearchLocationResult[] | null>(null);
     const [ selections, setSelections ] = useState<SearchLocationResult[]>([]);
@@ -13,10 +14,12 @@ const useLocationSearch = () => {
 
     const handleSearch = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setIsLoading(true);
         await apiService.searchLocation(query)
             .then((searchResults) => {
                 setResults(searchResults);
             });
+        setIsLoading(false);
     };
 
     const handleAdd = (location: SearchLocationResult) => {
@@ -38,6 +41,7 @@ const useLocationSearch = () => {
     };
 
     return {
+        isLoading,
         query,
         results,
         selections,

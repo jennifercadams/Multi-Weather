@@ -1,0 +1,8 @@
+#search-form {
+    display: flex;
+    height: 24px;
+}
+
+#search-form .loading-spinner {
+    margin-left: 8px;
+}

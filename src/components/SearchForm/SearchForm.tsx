@@ -1,7 +1,10 @@
 import * as React from "react";
+import LoadingSpinner from "~components/LoadingSpinner/LoadingSpinner";
 import { SearchLocationResult } from "~services/ApiService";
+import "./SearchForm.css";
 
 export type SearchFormProps = {
+    isLoading: boolean;
     query: string;
     results: SearchLocationResult[] | null;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -11,6 +14,7 @@ export type SearchFormProps = {
 
 const SearchForm = (props: SearchFormProps) => {
     const {
+        isLoading,
         query,
         results,
         handleChange,
@@ -24,7 +28,8 @@ const SearchForm = (props: SearchFormProps) => {
             <p>Search for locations using postal code, place name, or latitude and longitude.</p>
             <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
-                <button id="search-button" type="submit">Search</button>
+                <button id="search-button" type="submit" disabled={isLoading}>Search</button>
+                {isLoading && <LoadingSpinner />}
             </form>
             {results && (results.length > 0 ? results.map((result, index) => {
                 const key = `SearchResult${index}`;

@@ -5,6 +5,7 @@ import SelectedLocations from "~components/SelectedLocations/SelectedLocations";
 
 const LocationSearch = () => {
     const {
+        isLoading,
         query,
         results,
         selections,
@@ -15,7 +16,7 @@ const LocationSearch = () => {
         getQueries,
     } = useLocationSearch();
 
-    const searchFormProps = { query, results, handleChange, handleSearch, handleAdd };
+    const searchFormProps = { isLoading, query, results, handleChange, handleSearch, handleAdd };
     const selectedLocationsProps = { selections, handleRemove, getQueries };
 
     return (
