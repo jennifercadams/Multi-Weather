@@ -19,7 +19,7 @@ const SearchForm = (props: SearchFormProps) => {
     } = props;
 
     return (
-        <div id="search-form">
+        <div id="search-form-container">
             <h2 id="search-header">Search Locations</h2>
             <p>Search for locations using postal code, place name, or latitude and longitude.</p>
             <form id="search-form" onSubmit={handleSearch}>
