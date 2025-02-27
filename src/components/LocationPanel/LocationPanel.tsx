@@ -21,4 +21,16 @@ const LocationPanel = (props: LocationPanelProps) => {
     );
 };
 
-export default LocationPanel;
+const LocationPanelPlaceholder = () => {
+    return (
+        <div className="location-panel">
+            <div className="icon-placeholder placeholder" />
+            <div className="name-placeholder placeholder" />
+            <div className="text-placeholder placeholder" />
+            <div className="text-placeholder placeholder" />
+            <div className="text-placeholder placeholder" />
+        </div>
+    );
+};
+
+export { LocationPanel, LocationPanelPlaceholder };

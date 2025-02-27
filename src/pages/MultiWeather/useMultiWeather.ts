@@ -4,16 +4,21 @@ import { ApiService, Current } from "~services/ApiService";
 
 const useMultiWeather = () => {
     const apiService = new ApiService();
+    const [ isLoading, setIsLoading ] = useState(true);
+    const [ locationNames, setLocationNames ] = useState<string[]>([]);
     const [ locations, setLocations ] = useState<Current[]>([]);
     const [ searchParams ] = useSearchParams();
 
     useEffect(() => {
         async function getCurrentData() {
+            setIsLoading(true);
             const data = await apiService.getCurrent(locationNames);
             setLocations(data);
+            setIsLoading(false);
         }
 
         const locationNames = searchParams.getAll("q") || [];
+        setLocationNames(locationNames);
         getCurrentData().then();
     }, []);
 
@@ -49,6 +54,8 @@ const useMultiWeather = () => {
     };
 
     return {
+        isLoading,
+        locationNames,
         locations,
         getLocationPanelProps,
     };

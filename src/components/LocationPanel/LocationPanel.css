@@ -1,3 +1,4 @@
+/* LocationPanel */
 .location-panel {
     margin-bottom: 24px;
 }
@@ -9,4 +10,36 @@ img.condition-icon {
 
 .location-name {
     margin-top: 0px;
+}
+
+/* LocationPanelPlaceholder */
+.location-panel .icon-placeholder {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 12px;
+}
+
+.location-panel .name-placeholder {
+    width: 120px;
+    height: 27.2px;
+    margin-bottom: 19.92px;
+}
+
+.location-panel .text-placeholder {
+    width: 150px;
+    height: 18.4px;
+    margin: 16px 0px;
+}
+
+.location-panel .placeholder {
+    background: linear-gradient(90deg, #ffffff, #c5c5c5);
+    background-position: 0%;
+    background-size: 400%;
+    animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0%; }
+    50% { background-position: 100%; }
+    100% { background-position: 0%; }
 }
