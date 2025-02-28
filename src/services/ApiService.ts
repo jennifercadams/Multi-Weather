@@ -41,8 +41,6 @@ export class ApiService {
 }
 
 export type SearchLocationResult = {
-    Latitude: string;
-    Longitude: string;
     ShortName: string;
     FullName: string;
 }
