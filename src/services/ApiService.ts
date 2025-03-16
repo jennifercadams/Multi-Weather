@@ -19,11 +19,11 @@ export class ApiService {
         return searchResults;
     }
 
-    public async getCurrent(locationNames: string[]) {
+    public async getForecast(locationNames: string[]) {
         const queries = `q=${locationNames.join("&q=")}`;
-        const url = `${this.baseUrl}/multiweather/getcurrent?${queries}`;
+        const url = `${this.baseUrl}/multiweather/getforecast?${queries}`;
 
-        const currentResults: Current[] = await fetch(url)
+        const currentResults: Forecast[] = await fetch(url)
             .then(async (jsonResponse) => {
                 const response = await jsonResponse.json();
                 if (!jsonResponse.ok)
@@ -45,13 +45,14 @@ export type SearchLocationResult = {
     FullName: string;
 }
 
-export type Current = {
+export type Forecast = {
     LocationQuery: string;
     LocationFound: boolean;
     LocationName?: string;
     TimeZone?: string;
     ConditionText?: string;
     ConditionIcon?: string;
-    TempC?: number;
-    TempF?: number;
+    CurrentTemp?: number;
+    MaxTemp?: number;
+    MinTemp?: number;
 }

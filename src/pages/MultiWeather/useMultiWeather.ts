@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { ApiService, Current } from "~services/ApiService";
+import { LocationPanelProps } from "~components/LocationPanel/LocationPanel";
+import { ApiService, Forecast } from "~services/ApiService";
 
 const useMultiWeather = () => {
     const apiService = new ApiService();
     const [ isLoading, setIsLoading ] = useState(true);
     const [ locationNames, setLocationNames ] = useState<string[]>([]);
-    const [ locations, setLocations ] = useState<Current[]>([]);
+    const [ locations, setLocations ] = useState<Forecast[]>([]);
     const [ searchParams ] = useSearchParams();
 
     useEffect(() => {
-        async function getCurrentData() {
+        async function getForecastData() {
             setIsLoading(true);
-            const data = await apiService.getCurrent(locationNames);
+            const data = await apiService.getForecast(locationNames);
             setLocations(data);
             setIsLoading(false);
         }
 
         const locationNames = searchParams.getAll("q") || [];
         setLocationNames(locationNames);
-        getCurrentData().then();
+        getForecastData().then();
     }, []);
 
     const formatDateTimeString = (timeZone?: string): string => {
@@ -37,19 +38,24 @@ const useMultiWeather = () => {
         return `${months[parseInt(M) - 1]} ${d}, ${h}:${m} ${ampm} (${tz})`;
     };
 
-    const formatTempString = (tempC?: number, tempF?: number): string => {
-        if (!tempC && !tempF)
+    const formatTempString = (tempC?: number): string => {
+        if (tempC == null)
             return "";
-        return `${tempC}° C | ${tempF}° F`;
+
+        const tempF = (tempC * 1.8) + 32;
+
+        return `${tempC.toFixed(1)}° C | ${tempF.toFixed(1)}° F`;
     };
 
-    const getLocationPanelProps = (location: Current) => {
+    const getLocationPanelProps = (location: Forecast): LocationPanelProps => {
         return {
             locationName: location.LocationName || "",
             dateTime: formatDateTimeString(location.TimeZone),
-            temperature: formatTempString(location.TempC, location.TempF),
+            currentTemp: formatTempString(location.CurrentTemp),
             conditionText: location.ConditionText || "",
             conditionIcon: location.ConditionIcon || "",
+            maxTemp: formatTempString(location.MaxTemp),
+            minTemp: formatTempString(location.MinTemp),
         };
     };
 
