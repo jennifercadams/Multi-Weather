@@ -34,8 +34,9 @@ const useLocationSearch = () => {
     
     const getQueries = () => {
         const queries: string[] = [];
-        selections.forEach((selection) => {;
-            queries.push(selection.FullName);
+        selections.forEach((selection) => {
+            const query = selection.FullName.replace("#", "");
+            queries.push(query);
         });
         return `q=${queries.join("&q=")}`;
     };
