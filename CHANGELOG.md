@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.2.2 (15 Mar 2025)
+
+- Added high and low temperatures
+- Fixed bug caused by certain location names containing hash symbols
+
 ## Version 0.2.1 (27 Feb 2025)
 
 - Fixed bug where the temperature did not display when either the Celsius or Fahrenheit temperature was exactly 0.
