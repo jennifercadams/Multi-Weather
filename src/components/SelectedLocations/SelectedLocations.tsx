@@ -31,7 +31,7 @@ const SelectedLocations = (props: SelectedLocationsProps) => {
             {selections.length == 0 &&
             <p className="error">No locations selected.</p>}
             <div id="continue-button">
-                <Link to={`/current/?${getQueries()}`}>
+                <Link to={`/current?${getQueries()}`}>
                     <button disabled={selections.length == 0}>Continue</button>
                 </Link>
             </div>
