@@ -25,9 +25,10 @@ Weather data is provided by WeatherAPI.com.
 
 This is a hobby project and the back end is currently hosted using a free service. If the back end service is idle for a certain period of time, it will sleep until another request is made. This means that sometimes search results or weather data may take up to a minute to load.
 
-## Version 0.2.2 (15 Mar 2025)
+## Version 0.2.3 (5 Apr 2025)
 
-- Added high and low temperatures
-- Fixed bug caused by certain location names containing hash symbols
+- Change font to sans-serif
+- Add viewport meta element so that site displays properly on mobile
+- Changes to vite config and React router setup to support deployment on Render
 
 [View full changelog](CHANGELOG.md)

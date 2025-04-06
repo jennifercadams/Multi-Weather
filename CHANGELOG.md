@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.2.3 (5 Apr 2025)
+
+- Change font to sans-serif
+- Add viewport meta element so that site displays properly on mobile
+- Changes to vite config and React router setup to support deployment on Render
+
 ## Version 0.2.2 (15 Mar 2025)
 
 - Added high and low temperatures
