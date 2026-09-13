@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.2.4 (13 Sept 2026)
+
+- Minor CSS improvements
+
 ## Version 0.2.3 (5 Apr 2025)
 
 - Change font to sans-serif
