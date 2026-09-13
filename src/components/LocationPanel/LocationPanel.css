@@ -1,6 +1,9 @@
 /* LocationPanel */
 .location-panel {
-    margin-bottom: 24px;
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    padding: 16px;
+    width: 200px;
 }
 
 img.condition-icon {
@@ -9,7 +12,11 @@ img.condition-icon {
 }
 
 .location-name {
-    margin-top: 0px;
+    margin: 0;
+}
+
+.location-time {
+    font-size: 14px;
 }
 
 /* LocationPanelPlaceholder */

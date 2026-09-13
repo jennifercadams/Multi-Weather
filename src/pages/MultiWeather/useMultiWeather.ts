@@ -3,6 +3,11 @@ import { useSearchParams } from "react-router";
 import { LocationPanelProps } from "~components/LocationPanel/LocationPanel";
 import { ApiService, Forecast } from "~services/ApiService";
 
+export type Temp = {
+    C: string;
+    F: string;
+};
+
 const useMultiWeather = () => {
     const apiService = new ApiService();
     const [ isLoading, setIsLoading ] = useState(true);
@@ -46,12 +51,24 @@ const useMultiWeather = () => {
 
         return `${tempC.toFixed(1)}° C | ${tempF.toFixed(1)}° F`;
     };
+    
+    const getTempObject = (tempC?: number): Temp => {
+        if (tempC == null)
+            return { C: "", F: "" };
+
+        const tempF = (tempC * 1.8) + 32;
+
+        return {
+            C: `${tempC.toFixed(1)}° C`,
+            F: `${tempF.toFixed(1)}° F`,
+        };
+    };
 
     const getLocationPanelProps = (location: Forecast): LocationPanelProps => {
         return {
             locationName: location.LocationName || "",
             dateTime: formatDateTimeString(location.TimeZone),
-            currentTemp: formatTempString(location.CurrentTemp),
+            currentTemp: getTempObject(location.CurrentTemp),
             conditionText: location.ConditionText || "",
             conditionIcon: location.ConditionIcon || "",
             maxTemp: formatTempString(location.MaxTemp),

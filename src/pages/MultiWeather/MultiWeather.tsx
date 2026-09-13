@@ -1,6 +1,7 @@
 import * as React from "react";
 import { LocationPanel, LocationPanelPlaceholder } from "~components/LocationPanel/LocationPanel";
 import useMultiWeather from "./useMultiWeather";
+import "./MultiWeather.css";
 
 const MultiWeather = () => {
     const {
@@ -13,15 +14,17 @@ const MultiWeather = () => {
     return (
         <div id="multi-weather">
             <h1>MultiWeather</h1>
-            {!isLoading ? locations.map((location, index) => {
-                const key = `LocationPanel${index}`;
-                const locationPanelProps = getLocationPanelProps(location);
-                return <LocationPanel key={key} {...locationPanelProps}/>;
-            }) :
-            locationNames.map((_, index) => {
-                const key = `LocationPanelPlaceholder${index}`;
-                return <LocationPanelPlaceholder key={key} />;
-            })}
+            <div id="location-container">
+                {!isLoading ? locations.map((location, index) => {
+                    const key = `LocationPanel${index}`;
+                    const locationPanelProps = getLocationPanelProps(location);
+                    return <LocationPanel key={key} {...locationPanelProps}/>;
+                }) :
+                locationNames.map((_, index) => {
+                    const key = `LocationPanelPlaceholder${index}`;
+                    return <LocationPanelPlaceholder key={key} />;
+                })}
+            </div>
         </div>
     );
 };
