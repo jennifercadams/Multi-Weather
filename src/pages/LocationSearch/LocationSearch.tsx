@@ -2,6 +2,7 @@ import * as React from "react";
 import useLocationSearch from "./useLocationSearch";
 import SearchForm from "~components/SearchForm/SearchForm";
 import SelectedLocations from "~components/SelectedLocations/SelectedLocations";
+import "./LocationSearch.css";
 
 const LocationSearch = () => {
     const {

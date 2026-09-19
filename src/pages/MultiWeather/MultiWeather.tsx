@@ -13,7 +13,6 @@ const MultiWeather = () => {
 
     return (
         <div id="multi-weather">
-            <h1>MultiWeather</h1>
             <div id="location-container">
                 {!isLoading ? locations.map((location, index) => {
                     const key = `LocationPanel${index}`;

@@ -1,0 +1,10 @@
+#page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+#page #header, #page #footer {
+    padding-left: 24px;
+}

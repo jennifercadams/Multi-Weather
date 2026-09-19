@@ -1,0 +1,5 @@
+#location-search {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
