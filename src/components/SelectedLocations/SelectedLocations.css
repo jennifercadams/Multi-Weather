@@ -1,4 +1,7 @@
 #selected-locations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 40%;
 }
 
@@ -13,6 +16,14 @@
     margin: 0;
 }
 
+#selected-locations .selected-location button.remove-button {
+    padding: 4px;
+}
+
 #continue-button {
-    margin: 24px 0;
+    margin: 0 auto;
+}
+
+#selected-locations #continue-button button {
+    padding: 16px 80px;
 }
