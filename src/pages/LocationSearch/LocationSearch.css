@@ -6,11 +6,24 @@
     padding: 24px;
 }
 
+#location-search button {
+    font-size: 1rem;
+    color: #efecff;
+    background-color: #3a4079;
+    border-color: #3c448ab9;
+    border-radius: 5px;
+    padding: 16px;
+}
+
+#location-search button:hover {
+    background-color: #373b61;
+}
+
 .location-search-step {
-    border: solid 2px #838096;
+    box-shadow: 0px 0px 6px 2px #726b9f;
     border-radius: 10px;
     padding: 24px;
-    margin: 0 8px;
+    margin: 0 12px;
 }
 
 .location-search-step h2 {

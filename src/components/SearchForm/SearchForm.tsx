@@ -31,13 +31,13 @@ const SearchForm = (props: SearchFormProps) => {
                 <button id="search-button" type="submit" disabled={isLoading}>Search</button>
                 <LoadingSpinner isLoading={isLoading} />
             </form>
-            {results && (results.length > 0 ? results.map((result, index) => {
-                const key = `SearchResult${index}`;
-                return (<div className="search-result" key={key}>
-                    <button onClick={() => handleAdd(result)}>{result.FullName}</button>
-                </div>);
-            }) : 
-            <p className="error">No results for search query.</p>)}
+            <div id="search-results">
+                {results && (results.length > 0 ? results.map((result, index) => {
+                    const key = `SearchResult${index}`;
+                    return (<button key={key} onClick={() => handleAdd(result)}>{result.FullName}</button>);
+                }) : 
+                <p className="error">No results for search query.</p>)}
+            </div>
         </div>
     );
 };
