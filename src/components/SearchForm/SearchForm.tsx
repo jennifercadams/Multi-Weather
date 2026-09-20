@@ -28,7 +28,10 @@ const SearchForm = (props: SearchFormProps) => {
             <p>Search for locations using postal code, place name, or latitude and longitude.</p>
             <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
-                <button id="search-button" type="submit" disabled={isLoading}>Search</button>
+                <button id="search-button" type="submit" disabled={isLoading}>
+                    <img className="magnifying-glass" src="/icons/magnifying-glass.svg" />
+                    Search
+                </button>
                 <LoadingSpinner isLoading={isLoading} />
             </form>
             <div id="search-results">

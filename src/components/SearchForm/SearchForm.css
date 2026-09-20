@@ -16,11 +16,18 @@
 }
 
 #search-form #search-button {
-    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+#search-form .magnifying-glass {
+    width: 16px;
+    height: 16px;
+    padding: 0 8px 2px 0;
 }
 
 #search-form .loading-spinner {
-    margin-left: 8px;
+    margin: 12px 12px 12px 8px;
 }
 
 #search-results {

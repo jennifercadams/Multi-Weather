@@ -25,7 +25,9 @@ const SelectedLocations = (props: SelectedLocationsProps) => {
                     const key = `SelectedLocations${index}`;
                     return (<div className="selected-location" key={key}>
                         <p>{location.FullName}</p>
-                        <button className="remove-button" onClick={() => handleRemove(index)}>X</button>
+                        <button className="remove-button" onClick={() => handleRemove(index)}>
+                            <img className="trash-can" src="/icons/trash-can.svg" />
+                        </button>
                     </div>);
                 })}
                 {selections.length == 0 &&

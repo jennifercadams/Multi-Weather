@@ -13,10 +13,16 @@
     border-color: #3c448ab9;
     border-radius: 5px;
     padding: 16px;
+    cursor: pointer;
 }
 
 #location-search button:hover {
     background-color: #373b61;
+}
+
+#location-search button:disabled {
+    background-color: #4a4c5f;
+    border-color: #404364b9
 }
 
 .location-search-step {
