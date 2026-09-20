@@ -1,6 +1,14 @@
+#search-form-container {
+    width: 60%;
+}
+
 #search-form {
     display: flex;
-    height: 24px;
+    height: 32px;
+}
+
+#location-query {
+    width: 300px;
 }
 
 #search-form .loading-spinner {

@@ -23,13 +23,13 @@ const SearchForm = (props: SearchFormProps) => {
     } = props;
 
     return (
-        <div id="search-form-container">
+        <div id="search-form-container" className="location-search-step">
             <h2 id="search-header">Search Locations</h2>
             <p>Search for locations using postal code, place name, or latitude and longitude.</p>
             <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
                 <button id="search-button" type="submit" disabled={isLoading}>Search</button>
-                {isLoading && <LoadingSpinner />}
+                <LoadingSpinner isLoading={isLoading} />
             </form>
             {results && (results.length > 0 ? results.map((result, index) => {
                 const key = `SearchResult${index}`;

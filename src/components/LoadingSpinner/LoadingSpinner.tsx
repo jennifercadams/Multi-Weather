@@ -1,8 +1,14 @@
 import * as React from "react";
 import "./LoadingSpinner.css";
 
-const LoadingSpinner = () => {
-    return ( <div className="loading-spinner" /> );
+export type LoadingSpinnerProps = {
+    isLoading: boolean
+};
+
+const LoadingSpinner = ({isLoading}: LoadingSpinnerProps) => {
+    return (
+        <div className={isLoading ? "loading-spinner show" : "loading-spinner"} />
+    );
 };
 
 export default LoadingSpinner;

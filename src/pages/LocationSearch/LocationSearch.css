@@ -1,5 +1,18 @@
 #location-search {
     display: flex;
-    justify-content: center;
-    gap: 32px;
+    justify-content: space-between;
+    border-radius: 5px;
+    height: 80vh;
+    padding: 24px;
+}
+
+.location-search-step {
+    border: solid 2px #838096;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 0 8px;
+}
+
+.location-search-step h2 {
+    margin: 0 0 16px;
 }

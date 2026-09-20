@@ -17,9 +17,9 @@ const SelectedLocations = (props: SelectedLocationsProps) => {
     } = props;
 
     return (
-        <div id="selected-locations">
+        <div id="selected-locations" className="location-search-step">
             <h2 id="selected-header">Selected Locations</h2>
-            <p>Add one or more locations above and click continue.</p>
+            <p>Add one or more locations and click continue.</p>
             {selections.length > 0 &&
             selections.map((location, index) => {
                 const key = `SelectedLocations${index}`;
