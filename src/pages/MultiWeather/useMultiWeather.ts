@@ -36,11 +36,11 @@ const useMultiWeather = () => {
 
         const localDate = new Date();
         const dateString = localDate.toLocaleDateString("en-US", { timeZone });
-        const [M,d] = dateString.split("/");
+        const [M,d,y] = dateString.split("/");
         const timeString = localDate.toLocaleTimeString("en-US", { timeZone, timeZoneName:"short" });
         const [h,m,_,ampm,tz] = timeString.split(/[: ]/);
 
-        return `${months[parseInt(M) - 1]} ${d}, ${h}:${m} ${ampm} (${tz})`;
+        return `${d} ${months[parseInt(M) - 1]} ${y} ${h}:${m} ${ampm} (${tz})`;
     };
 
     const formatTempString = (tempC?: number): string => {
