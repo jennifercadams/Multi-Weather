@@ -26,9 +26,9 @@
     justify-content: space-between;
     width: 80px;
     height: 44px;
-    padding: 8px 8px 8px 12px;
+    padding: 8px 8px 8px 14px;
     background-color: unset;
-    border: solid 2px var(--border-color);
+    border: none;
 }
 
 #page #header #theme-toggle img {
@@ -49,19 +49,19 @@
     width: 20px;
     background-color: var(--border-color);
     border-radius: 100%;
-    transform: translate(2px, 2px);
+    transform: translate(2px, 4px);
     transition: 200ms;
 }
 
 #theme-toggle #theme-toggle-slider.light {
-    transform: translate(34px, 2px);
+    transform: translate(34px, 4px);
 }
 
 #theme-toggle-bg {
     position: absolute;
     height: 8px;
     width: 20px;
-    transform: translate(18px, 8.5px);
+    transform: translate(18px, 10.5px);
     z-index: -10;
 }
 
