@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useOutletContext } from "react-router";
 import useLocationSearch from "./useLocationSearch";
 import SearchForm from "~components/SearchForm/SearchForm";
 import SelectedLocations from "~components/SelectedLocations/SelectedLocations";
@@ -17,8 +18,10 @@ const LocationSearch = () => {
         getQueries,
     } = useLocationSearch();
 
-    const searchFormProps = { isLoading, query, results, handleChange, handleSearch, handleAdd };
-    const selectedLocationsProps = { selections, handleRemove, getQueries };
+    const [ colorTheme ]: string[] = useOutletContext();
+
+    const searchFormProps = { colorTheme, isLoading, query, results, handleChange, handleSearch, handleAdd };
+    const selectedLocationsProps = { colorTheme, selections, handleRemove, getQueries };
 
     return (
         <div id="location-search">

@@ -10,10 +10,18 @@
 }
 
 #page #header {
+    display: flex;
+    justify-content: space-between;
     height: 77px;
-    padding-left: 24px;
+    box-sizing: border-box;
 }
 #page #header h1 {
     margin: 0;
     padding: 20px 0;
+}
+
+#page #header button {
+    font-size: 1rem;
+    padding: 0 8px;
+    margin: 16px 24px;
 }

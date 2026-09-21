@@ -4,6 +4,7 @@ import { SearchLocationResult } from "~services/ApiService";
 import "./SearchForm.css";
 
 export type SearchFormProps = {
+    colorTheme: string;
     isLoading: boolean;
     query: string;
     results: SearchLocationResult[] | null;
@@ -14,6 +15,7 @@ export type SearchFormProps = {
 
 const SearchForm = (props: SearchFormProps) => {
     const {
+        colorTheme,
         isLoading,
         query,
         results,
@@ -29,7 +31,7 @@ const SearchForm = (props: SearchFormProps) => {
             <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
                 <button id="search-button" type="submit" disabled={isLoading}>
-                    <img className="magnifying-glass" src="/icons/magnifying-glass.svg" />
+                    <img className="magnifying-glass" src={`/icons/magnifying-glass-${colorTheme}.svg`} />
                     Search
                 </button>
                 <LoadingSpinner isLoading={isLoading} />

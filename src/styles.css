@@ -48,3 +48,23 @@ a {
 a:hover {
     color: var(--hover-color);
 }
+
+button {
+    font-size: 1rem;
+    color: var(--primary-text-color);
+    background-color: var(--button-bg-color);
+    border-color: var(--button-border-color);
+    border-radius: 5px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    border-color: var(--button-hover-color);
+}
+
+button:disabled {
+    background-color: var(--button-disabled-color);
+    border-color: var(--button-disabled-color);
+}

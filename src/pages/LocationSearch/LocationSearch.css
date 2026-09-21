@@ -6,26 +6,6 @@
     padding: 24px;
 }
 
-#location-search button {
-    font-size: 1rem;
-    color: var(--primary-text-color);
-    background-color: var(--button-bg-color);
-    border-color: var(--button-border-color);
-    border-radius: 5px;
-    padding: 16px;
-    cursor: pointer;
-}
-
-#location-search button:hover {
-    background-color: var(--button-hover-color);
-    border-color: var(--button-hover-color);
-}
-
-#location-search button:disabled {
-    background-color: var(--button-disabled-color);
-    border-color: var(--button-disabled-color);
-}
-
 .location-search-step {
     box-shadow: 0px 0px 6px 2px #726b9f;
     border-radius: 10px;

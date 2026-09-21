@@ -4,6 +4,7 @@ import { SearchLocationResult } from "~services/ApiService";
 import "./SelectedLocations.css";
 
 export type SelectedLocationsProps = {
+    colorTheme: string;
     selections: SearchLocationResult[];
     handleRemove: (arg: number) => void;
     getQueries: () => string;
@@ -11,6 +12,7 @@ export type SelectedLocationsProps = {
 
 const SelectedLocations = (props: SelectedLocationsProps) => {
     const {
+        colorTheme,
         selections,
         handleRemove,
         getQueries,
@@ -26,7 +28,7 @@ const SelectedLocations = (props: SelectedLocationsProps) => {
                     return (<div className="selected-location" key={key}>
                         <p>{location.FullName}</p>
                         <button className="remove-button" onClick={() => handleRemove(index)}>
-                            <img className="trash-can" src="/icons/trash-can.svg" />
+                            <img className="trash-can" src={`/icons/trash-can-${colorTheme}.svg`} />
                         </button>
                     </div>);
                 })}
