@@ -8,21 +8,22 @@
 
 #location-search button {
     font-size: 1rem;
-    color: #efecff;
-    background-color: #3a4079;
-    border-color: #3c448ab9;
+    color: var(--primary-text-color);
+    background-color: var(--button-bg-color);
+    border-color: var(--button-border-color);
     border-radius: 5px;
     padding: 16px;
     cursor: pointer;
 }
 
 #location-search button:hover {
-    background-color: #373b61;
+    background-color: var(--button-hover-color);
+    border-color: var(--button-hover-color);
 }
 
 #location-search button:disabled {
-    background-color: #4a4c5f;
-    border-color: #404364b9
+    background-color: var(--button-disabled-color);
+    border-color: var(--button-disabled-color);
 }
 
 .location-search-step {
