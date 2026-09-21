@@ -53,6 +53,13 @@ export type Forecast = {
     ConditionText?: string;
     ConditionIcon?: string;
     CurrentTemp?: number;
+    FeelsLike?: number;
     MaxTemp?: number;
     MinTemp?: number;
+    WillItRain?: boolean;
+    ChanceOfRain?: number;
+    TotalPrecipMm?: number;
+    WillItSnow?: boolean;
+    ChanceOfSnow?: number;
+    TotalSnowCm?: number;
 }

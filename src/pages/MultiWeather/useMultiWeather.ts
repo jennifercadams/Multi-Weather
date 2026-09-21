@@ -42,15 +42,6 @@ const useMultiWeather = () => {
 
         return `${d} ${months[parseInt(M) - 1]} ${y} ${h}:${m} ${ampm} (${tz})`;
     };
-
-    const formatTempString = (tempC?: number): string => {
-        if (tempC == null)
-            return "";
-
-        const tempF = (tempC * 1.8) + 32;
-
-        return `${tempC.toFixed(1)}° C | ${tempF.toFixed(1)}° F`;
-    };
     
     const getTempObject = (tempC?: number): Temp => {
         if (tempC == null)
@@ -59,20 +50,65 @@ const useMultiWeather = () => {
         const tempF = (tempC * 1.8) + 32;
 
         return {
-            C: `${tempC.toFixed(1)}° C`,
-            F: `${tempF.toFixed(1)}° F`,
+            C: `${tempC.toFixed(1)} °C`,
+            F: `${tempF.toFixed(1)} °F`,
         };
+    };
+
+    const formatTempString = (tempC?: number): string => {
+        if (tempC == null)
+            return "";
+
+        const tempF = (tempC * 1.8) + 32;
+
+        return `${tempC.toFixed(1)} °C | ${tempF.toFixed(1)} °F`;
+    };
+
+    const formatChanceString = (chance?: number): string => {
+        if (chance == null)
+            return "";
+
+        return `${chance}%`;
+    };
+
+    const formatTotalPrecipString = (precipMm?: number): string => {
+        if (precipMm == null)
+            return "";
+
+        const precipIn = precipMm / 25.4;
+        const precipMmString = precipMm < 1 ? "< 1" : precipMm.toFixed(2);
+        const precipInString = precipIn < 1 ? "< 1" : precipIn.toFixed(2);
+
+        return `${precipMmString} mm | ${precipInString} in`;
+    };
+
+    const formatTotalSnowString = (snowCm?: number): string => {
+        if (snowCm == null)
+            return "";
+
+        const snowIn = snowCm / 2.54;
+        const snowCmString = snowCm < 1 ? "< 1" : snowCm.toFixed(2);
+        const snowInString = snowIn < 1 ? "< 1" : snowIn.toFixed(2);
+
+        return `${snowCmString} cm | ${snowInString} in`;
     };
 
     const getLocationPanelProps = (location: Forecast): LocationPanelProps => {
         return {
             locationName: location.LocationName || "",
             dateTime: formatDateTimeString(location.TimeZone),
-            currentTemp: getTempObject(location.CurrentTemp),
             conditionText: location.ConditionText || "",
             conditionIcon: location.ConditionIcon || "",
+            currentTemp: getTempObject(location.CurrentTemp),
+            feelsLike: formatTempString(location.FeelsLike),
             maxTemp: formatTempString(location.MaxTemp),
             minTemp: formatTempString(location.MinTemp),
+            willItRain: location.WillItRain || false,
+            chanceOfRain: formatChanceString(location.ChanceOfRain),
+            totalPrecip: formatTotalPrecipString(location.TotalPrecipMm),
+            willItSnow: location.WillItSnow || false,
+            chanceOfSnow: formatChanceString(location.ChanceOfSnow),
+            totalSnow: formatTotalSnowString(location.TotalSnowCm),
         };
     };
 

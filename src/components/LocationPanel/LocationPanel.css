@@ -3,12 +3,7 @@
     border: solid 2px #838096;
     border-radius: 5px;
     padding: 16px;
-    width: 200px;
-}
-
-img.condition-icon {
-    width: 64px;
-    height: 64px;
+    width: 500px;
 }
 
 .location-name {
@@ -17,6 +12,42 @@ img.condition-icon {
 
 .location-time {
     font-size: 14px;
+}
+
+.current {
+    display: flex;
+    align-items: center;
+}
+
+img.condition-icon {
+    width: 128px;
+    height: 128px;
+}
+
+.current-details {
+    margin-left: 24px;
+}
+
+.location-temp-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.location-temp {
+    font-size: 2.75rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #b1acce;
+    padding-right: 6px;
+}
+
+.detail-text {
+    padding-right: 12px;
 }
 
 /* LocationPanelPlaceholder */
