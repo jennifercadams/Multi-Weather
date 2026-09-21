@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
-    height: 80vh;
+    height: calc(100vh - 170px);
     padding: 24px;
 }
 
