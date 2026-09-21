@@ -5,10 +5,12 @@ import "./PageLayout.css";
 const PageLayout = () => {
     return (
         <div id="page">
-            <div id="header">
-                <h1>MultiWeather</h1>
+            <div id="main">
+                <div id="header">
+                    <h1>MultiWeather</h1>
+                </div>
+                <Outlet />
             </div>
-            <Outlet />
             <div id="footer">
                 <p id="weather-api-credit">Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
             </div>
