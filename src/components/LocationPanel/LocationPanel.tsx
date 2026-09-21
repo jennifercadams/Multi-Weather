@@ -32,31 +32,33 @@ const LocationPanel = (props: LocationPanelProps) => {
                         <p className="location-temp">{props.currentTemp.C}</p>
                         <p className="location-temp">{props.currentTemp.F}</p>
                     </div>
-                    <p>
-                        <span className="detail-label">Feels like</span>
-                        <span className="detail-text">{props.feelsLike}</span>
-                    </p>
                 </div>
             </div>
-            <p>
-                <span className="detail-label">High</span>
-                <span className="detail-text">{props.maxTemp}</span>
-                <span className="detail-label">Low</span>
-                <span className="detail-text">{props.minTemp}</span>
-            </p>
-            {props.willItRain && <p>
-                    <span className="detail-label">Chance of rain</span>
-                    <span className="detail-text">{props.chanceOfRain}</span>
-                    <span className="detail-label">Total precipitation</span>
-                    <span className="detail-text">{props.totalPrecip}</span>
-            </p>}
-            {props.willItSnow && <p>
-                <span className="detail-label">Chance of snow</span>
-                <span className="detail-text">{props.chanceOfSnow}</span>
-                <span className="detail-label">Total snowfall</span>
-                <span className="detail-text">{props.totalSnow}</span>
-            </p>}
-            {!props.willItRain && !props.willItSnow && <p className="detail-label">No precipitation</p>}
+            <div className="more-details">
+                <p className="detail-label">Feels like</p>
+                <p className="detail-text">{props.feelsLike}</p>
+            </div>
+            <div className="more-details">
+                <p className="detail-label">High</p>
+                <p className="detail-text">{props.maxTemp}</p>
+            </div>
+            <div className="more-details">
+                <p className="detail-label">Low</p>
+                <p className="detail-text">{props.minTemp}</p>
+            </div>
+            {props.willItRain && <>
+                <div className="more-details">
+                    <p className="detail-label">Rain</p>
+                    <p className="detail-text">{props.chanceOfRain}  |  {props.totalPrecip}</p>
+                </div>
+            </>}
+            {props.willItSnow && <>
+                <div className="more-details">
+                    <p className="detail-label">Snow</p>
+                    <p className="detail-text">{props.chanceOfSnow}  |  {props.totalSnow}</p>
+                </div>
+            </>}
+            {!props.willItRain && !props.willItSnow && <p className="more-details detail-label">No precipitation</p>}
         </div>
     );
 };

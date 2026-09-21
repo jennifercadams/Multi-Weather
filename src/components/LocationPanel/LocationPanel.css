@@ -2,8 +2,8 @@
 .location-panel {
     border: solid 2px #838096;
     border-radius: 5px;
-    padding: 16px;
-    width: 500px;
+    padding: 24px;
+    white-space: pre-wrap;
 }
 
 .location-name {
@@ -17,6 +17,7 @@
 .current {
     display: flex;
     align-items: center;
+    margin: 24px 0 16px;
 }
 
 img.condition-icon {
@@ -28,26 +29,34 @@ img.condition-icon {
     margin-left: 24px;
 }
 
+.condition-text {
+    margin: 0 0 12px
+}
+
 .location-temp-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 32px;
+    gap: 12px;
 }
 
 .location-temp {
-    font-size: 2.75rem;
+    font-size: 2rem;
     font-weight: bold;
     margin: 0;
+}
+
+.more-details {
+    display: flex;
+    justify-content: space-between;
+}
+.detail-label, .detail-text {
+    margin: 16px 0 0;
 }
 
 .detail-label {
     font-weight: bold;
     color: #b1acce;
-    padding-right: 6px;
-}
-
-.detail-text {
-    padding-right: 12px;
 }
 
 /* LocationPanelPlaceholder */

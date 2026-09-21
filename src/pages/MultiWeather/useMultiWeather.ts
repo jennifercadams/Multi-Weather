@@ -61,7 +61,7 @@ const useMultiWeather = () => {
 
         const tempF = (tempC * 1.8) + 32;
 
-        return `${tempC.toFixed(1)} °C | ${tempF.toFixed(1)} °F`;
+        return `${tempC.toFixed(1)} °C   |   ${tempF.toFixed(1)} °F`;
     };
 
     const formatChanceString = (chance?: number): string => {
@@ -76,10 +76,10 @@ const useMultiWeather = () => {
             return "";
 
         const precipIn = precipMm / 25.4;
-        const precipMmString = precipMm < 1 ? "< 1" : precipMm.toFixed(2);
+        const precipMmString = precipMm < 1 ? "< 1" : precipMm.toFixed(0);
         const precipInString = precipIn < 1 ? "< 1" : precipIn.toFixed(2);
 
-        return `${precipMmString} mm | ${precipInString} in`;
+        return `${precipMmString} mm  |  ${precipInString} in`;
     };
 
     const formatTotalSnowString = (snowCm?: number): string => {
@@ -90,7 +90,7 @@ const useMultiWeather = () => {
         const snowCmString = snowCm < 1 ? "< 1" : snowCm.toFixed(2);
         const snowInString = snowIn < 1 ? "< 1" : snowIn.toFixed(2);
 
-        return `${snowCmString} cm | ${snowInString} in`;
+        return `${snowCmString} cm  |  ${snowInString} in`;
     };
 
     const getLocationPanelProps = (location: Forecast): LocationPanelProps => {
