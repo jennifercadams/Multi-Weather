@@ -17,7 +17,7 @@
 .current {
     display: flex;
     align-items: center;
-    margin: 24px 0 16px;
+    margin: 16px 0 8px;
 }
 
 img.condition-icon {
@@ -25,12 +25,8 @@ img.condition-icon {
     height: 128px;
 }
 
-.current-details {
-    margin-left: 24px;
-}
-
 .condition-text {
-    margin: 0 0 12px
+    margin: 0 0 8px
 }
 
 .location-temp-container {
@@ -38,6 +34,7 @@ img.condition-icon {
     flex-direction: column;
     justify-content: space-between;
     gap: 12px;
+    margin-left: 24px;
 }
 
 .location-temp {
@@ -51,7 +48,7 @@ img.condition-icon {
     justify-content: space-between;
 }
 .detail-label, .detail-text {
-    margin: 16px 0 0;
+    margin: 8px 0 0;
 }
 
 .detail-label {

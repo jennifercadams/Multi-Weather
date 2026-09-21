@@ -26,14 +26,12 @@ const LocationPanel = (props: LocationPanelProps) => {
             <p className="location-time">{props.dateTime}</p>
             <div className="current">
                 <img className="condition-icon" src={props.conditionIcon} />
-                <div className="current-details">
-                    <p className="condition-text">{props.conditionText}</p>
-                    <div className="location-temp-container">
-                        <p className="location-temp">{props.currentTemp.C}</p>
-                        <p className="location-temp">{props.currentTemp.F}</p>
-                    </div>
+                <div className="location-temp-container">
+                    <p className="location-temp">{props.currentTemp.C}</p>
+                    <p className="location-temp">{props.currentTemp.F}</p>
                 </div>
             </div>
+            <p className="condition-text">{props.conditionText}</p>
             <div className="more-details">
                 <p className="detail-label">Feels like</p>
                 <p className="detail-text">{props.feelsLike}</p>
