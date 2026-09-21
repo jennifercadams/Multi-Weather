@@ -14,7 +14,12 @@ const PageLayout = () => {
             <div id="main">
                 <div id="header">
                     <h1>MultiWeather</h1>
-                    <button onClick={handleToggleTheme}>Dark / Light</button>
+                    <button id="theme-toggle" onClick={handleToggleTheme}>
+                        <img id="light-icon" className={colorTheme} src={`/icons/sun-light.svg`}></img>
+                        <img id="dark-icon" className={colorTheme} src={`/icons/moon-dark.svg`}></img>
+                        <div id="theme-toggle-slider" className={colorTheme} />
+                        <div id="theme-toggle-bg" className={colorTheme} />
+                    </button>
                 </div>
                 <Outlet context={[colorTheme]} />
             </div>
