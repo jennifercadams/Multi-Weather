@@ -28,7 +28,7 @@ const SearchForm = (props: SearchFormProps) => {
             <h2 id="search-header">Search Locations</h2>
             <p>Search for locations using postal code, place name, or latitude and longitude.</p>
             <form id="search-form" onSubmit={handleSearch}>
-                <input id="location-query" type="text" value={query} onChange={handleChange} />
+                <input id="location-query" className={colorTheme} type="text" value={query} onChange={handleChange} />
                 <button id="search-button" type="submit" disabled={isLoading}>
                     {!isLoading && <img className="icon" src={`/icons/magnifying-glass-${colorTheme}.svg`} />}
                     {isLoading && <img className="icon spinner" src={`/icons/spinner-${colorTheme}.svg`} />}

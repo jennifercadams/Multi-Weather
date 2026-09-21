@@ -10,6 +10,7 @@
     --button-hover-color: #373b61;
     --button-disabled-color: #4a4c5f;
     --button-shadow-color: #181721;
+    --input-bg-color: #ffffff0a;
 }
 
 [data-color-theme="light"] {
@@ -24,6 +25,7 @@
     --button-hover-color: #999fd3;
     --button-disabled-color: #b5b6c2;
     --button-shadow-color: #666387;
+    --input-bg-color: #ffffff85;
 }
 
 body {
