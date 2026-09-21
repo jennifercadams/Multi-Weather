@@ -1,5 +1,5 @@
 #multi-weather {
-    min-height: calc(100vh - 130px);
+    height: calc(100% - 130px);
     padding: 16px 24px;
     box-sizing: border-box;
 }
@@ -8,4 +8,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+}
+
+@container scroll-state(scrollable: y) {
+    #multi-weather {
+        height: unset;
+    }
 }

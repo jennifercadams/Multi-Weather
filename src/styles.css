@@ -1,3 +1,7 @@
+html {
+    container-type: scroll-state;
+}
+
 body {
     font-family: sans-serif;
     margin: 0;
