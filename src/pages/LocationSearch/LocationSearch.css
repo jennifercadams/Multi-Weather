@@ -7,7 +7,7 @@
 }
 
 .location-search-step {
-    box-shadow: 0px 0px 6px 2px #726b9f;
+    box-shadow: 0px 0px 6px 2px var(--border-color);
     border-radius: 10px;
     padding: 24px;
     margin: 0 12px;
