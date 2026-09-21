@@ -1,5 +1,4 @@
 import * as React from "react";
-import LoadingSpinner from "~components/LoadingSpinner/LoadingSpinner";
 import { SearchLocationResult } from "~services/ApiService";
 import "./SearchForm.css";
 
@@ -31,10 +30,10 @@ const SearchForm = (props: SearchFormProps) => {
             <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" type="text" value={query} onChange={handleChange} />
                 <button id="search-button" type="submit" disabled={isLoading}>
-                    <img className="magnifying-glass" src={`/icons/magnifying-glass-${colorTheme}.svg`} />
+                    {!isLoading && <img className="icon" src={`/icons/magnifying-glass-${colorTheme}.svg`} />}
+                    {isLoading && <img className="icon spinner" src={`/icons/spinner-${colorTheme}.svg`} />}
                     Search
                 </button>
-                <LoadingSpinner isLoading={isLoading} />
             </form>
             <div id="search-results">
                 {results && (results.length > 0 ? results.map((result, index) => {
