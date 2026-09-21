@@ -16,3 +16,22 @@
 .location-search-step h2 {
     margin: 0 0 16px;
 }
+
+@media (max-width: 750px) {
+    #location-search {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 24px;
+        height: unset;
+    }
+
+    .location-search-step {
+        margin: 0;
+    }
+}
+
+@media (max-width: 370px) {
+    .location-search-step {
+        padding: 16px;
+    }
+}

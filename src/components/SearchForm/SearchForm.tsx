@@ -32,15 +32,17 @@ const SearchForm = (props: SearchFormProps) => {
                 <button id="search-button" type="submit" disabled={isLoading}>
                     {!isLoading && <img className="icon" src={`/icons/magnifying-glass-${colorTheme}.svg`} />}
                     {isLoading && <img className="icon spinner" src={`/icons/spinner-${colorTheme}.svg`} />}
-                    Search
+                    <p id="search-button-text">Search</p>
                 </button>
             </form>
-            <div id="search-results">
-                {results && (results.length > 0 ? results.map((result, index) => {
-                    const key = `SearchResult${index}`;
-                    return (<button key={key} onClick={() => handleAdd(result)}>{result.FullName}</button>);
-                }) : 
-                <p className="error">No results for search query.</p>)}
+            <div id="search-results-container">
+                {results && <div id="search-results">
+                    {(results.length > 0 ? results.map((result, index) => {
+                        const key = `SearchResult${index}`;
+                        return (<button key={key} onClick={() => handleAdd(result)}>{result.FullName}</button>);
+                    }) : 
+                    <p className="error">No results for search query.</p>)}
+                </div>}
             </div>
         </div>
     );

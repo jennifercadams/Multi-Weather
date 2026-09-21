@@ -11,6 +11,7 @@
     --button-border-color: #24284db9;
     --button-hover-color: #373b61;
     --button-disabled-color: #4a4c5f;
+    --button-shadow-color: #181721;
 }
 
 [data-color-theme="light"] {
@@ -26,6 +27,7 @@
     --button-border-color: #4c5175b9;
     --button-hover-color: #999fd3;
     --button-disabled-color: #b5b6c2;
+    --button-shadow-color: #666387;
 }
 
 body {

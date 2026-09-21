@@ -40,3 +40,9 @@
 #selected-locations #continue-button button {
     padding: 16px 80px;
 }
+
+@media (max-width: 750px) {
+    #selected-locations {
+        width: unset;
+    }
+}
