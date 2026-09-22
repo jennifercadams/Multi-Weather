@@ -39,6 +39,55 @@
     border: none;
 }
 
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--tooltip-bg-color);
+    color: var(--primary-text-color);
+    text-align: center;
+    white-space: nowrap;
+    padding: 5px 8px;
+    border-radius: 6px;
+    z-index: 1;
+}
+
+button.tooltip .tooltip-text.active {
+    display: flex;
+    justify-content: center;
+}
+
+img.tooltip-icon {
+    width: 16px;
+    height: 16px;
+    padding: 0 8px 0 0;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--tooltip-bg-color) transparent;
+}
+
+.tooltip:hover .tooltip-text.hover {
+    visibility: visible;
+}
+
+/* Theme Toggle */
 #page #header #theme-toggle:hover {
     background-color: #b1acce2c;
 }

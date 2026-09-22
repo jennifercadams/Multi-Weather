@@ -22,11 +22,21 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
                     <h1>MultiWeather</h1>
                     <div id="action-buttons">
                         {showActionButtons && <>
-                            <button id="copy" className="icon-button" onClick={handleCopyToClipboard}>
+                            <button id="copy" className="icon-button tooltip" onClick={handleCopyToClipboard}>
                                 <img className="icon-button-img" src={`/icons/copy-${colorTheme}.svg`} />
+                                <span className="tooltip-text hover">Copy permalink</span>
+                                <span className="tooltip-text active">
+                                    <img className="tooltip-icon" src={`/icons/checkmark-${colorTheme}.svg`} />
+                                    Copied
+                                </span>
                             </button>
-                            <button id="save" className="icon-button" onClick={handleSaveLocal}>
+                            <button id="save" className="icon-button tooltip" onClick={handleSaveLocal}>
                                 <img className="icon-button-img" src={`/icons/save-${colorTheme}.svg`} />
+                                <span className="tooltip-text hover">Save to local</span>
+                                <span className="tooltip-text active">
+                                    <img className="tooltip-icon" src={`/icons/checkmark-${colorTheme}.svg`} />
+                                    Saved
+                                </span>
                             </button>
                         </>}
                         <button id="theme-toggle" title="Toggle Dark/Light Mode" onClick={handleToggleTheme}>

@@ -12,6 +12,7 @@
     --button-disabled-color: #4a4c5f;
     --button-shadow-color: #181721;
     --input-bg-color: #21202a;
+    --tooltip-bg-color: #605983;
 }
 
 [data-color-theme="light"] {
@@ -28,6 +29,7 @@
     --button-disabled-color: #b5b6c2;
     --button-shadow-color: #666387;
     --input-bg-color: #f7f6ff;
+    --tooltip-bg-color: #b7b1db;
 }
 
 body {

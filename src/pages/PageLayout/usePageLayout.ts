@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useEffect, useState } from "react";
 
 const themes = [ "dark", "light" ];
@@ -12,12 +13,25 @@ const usePageLayout = () => {
         localStorage.setItem("theme", colorTheme);
     }, [colorTheme]);
 
-    const handleCopyToClipboard = () => {
+    const handleCopyToClipboard = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         navigator.clipboard.writeText(window.location.href);
+        showOnClickTooltip(e.target as HTMLElement);
     };
 
-    const handleSaveLocal = () => {
+    const handleSaveLocal = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         localStorage.setItem("url", window.location.href);
+        showOnClickTooltip(e.target as HTMLElement);
+    };
+
+    const showOnClickTooltip = (target: HTMLElement) => {
+        const hoverTooltip = target.parentElement?.querySelector(".tooltip-text.hover") as HTMLElement;
+        const activeTooltip = target.parentElement?.querySelector(".tooltip-text.active") as HTMLElement;
+        hoverTooltip.style.setProperty("visibility", "hidden");
+        activeTooltip.style.setProperty("visibility", "visible");
+        window.setTimeout(() => {
+            hoverTooltip.style.removeProperty("visibility");
+            activeTooltip.style.setProperty("visibility", "hidden");
+        }, 1000);
     };
 
     const handleToggleTheme = () => {
