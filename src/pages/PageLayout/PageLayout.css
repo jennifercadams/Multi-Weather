@@ -60,7 +60,7 @@
     position: absolute;
     height: 8px;
     width: 20px;
-    transform: translate(18px, 10.5px);
+    transform: translate(18px, 10px);
     z-index: -10;
 }
 
