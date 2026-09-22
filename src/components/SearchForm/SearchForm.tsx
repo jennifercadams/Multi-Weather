@@ -43,6 +43,10 @@ const SearchForm = (props: SearchFormProps) => {
                     }) : 
                     <p className="error">No results for search query.</p>)}
                 </div>}
+                <p id="loading-message" className={isLoading ? "loading" : ""}>
+                    <img className="icon" src={`/icons/warning-${colorTheme}.svg`} />
+                    Connecting to server. Loading may take up to a minute for the first request.
+                </p>
             </div>
         </div>
     );

@@ -3,6 +3,7 @@
     --primary-text-color: #efecff;
     --secondary-text-color: #b1acce;
     --hover-color: #9993c2;
+    --warning-color: #dcdca3;
     --error-color: #f34343;
     --border-color: #726b9f;
     --button-bg-color: #3a4079;
@@ -18,6 +19,7 @@
     --primary-text-color: #181721;
     --secondary-text-color: #605983;
     --hover-color: #9993c2;
+    --warning-color: #f0991e;
     --error-color: #f34343;
     --border-color: #726b9f;
     --button-bg-color: #b4bbf8;
