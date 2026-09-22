@@ -12,6 +12,14 @@ const usePageLayout = () => {
         localStorage.setItem("theme", colorTheme);
     }, [colorTheme]);
 
+    const handleCopyToClipboard = () => {
+        navigator.clipboard.writeText(window.location.href);
+    };
+
+    const handleSaveLocal = () => {
+        localStorage.setItem("url", window.location.href);
+    };
+
     const handleToggleTheme = () => {
         if (colorTheme == "dark") {
             setColorTheme("light");
@@ -22,6 +30,8 @@ const usePageLayout = () => {
 
     return {
         colorTheme,
+        handleCopyToClipboard,
+        handleSaveLocal,
         handleToggleTheme,
     };
 };

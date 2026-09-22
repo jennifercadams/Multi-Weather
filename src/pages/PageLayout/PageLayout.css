@@ -20,6 +20,15 @@
     margin: 0;
 }
 
+#page #header #action-buttons {
+    display: flex;
+}
+
+#page #header #action-buttons .icon-button-img {
+    width: 32px;
+    height: 32px;
+}
+
 #page #header #theme-toggle {
     display: flex;
     justify-content: space-between;

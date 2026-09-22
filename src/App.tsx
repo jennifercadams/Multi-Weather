@@ -7,8 +7,10 @@ import PageLayout from "~pages/PageLayout/PageLayout";
 const App = () => (
     <BrowserRouter>
         <Routes>
-            <Route element={<PageLayout />}> 
+            <Route element={<PageLayout showActionButtons={false} />}> 
                 <Route index element={<LocationSearch />} />
+            </Route>
+            <Route element={<PageLayout showActionButtons={true} />}>
                 <Route path="current" element={<MultiWeather />} />
             </Route>
         </Routes>

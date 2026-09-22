@@ -66,3 +66,20 @@ button:disabled {
     background-color: var(--button-disabled-color);
     border-color: var(--button-disabled-color);
 }
+
+button.icon-button {
+    background-color: unset;
+    border: none;
+    padding: 0;
+}
+
+button.icon-button img.icon-button-img {
+    width: 24px;
+    height: 24px;
+    padding: 2px 8px 0;
+    transition: 300ms;
+}
+
+button.icon-button img.icon-button-img:hover {
+    transform: scale(1.2);
+}

@@ -16,23 +16,6 @@
     margin: 0;
 }
 
-#selected-locations .selected-location button.remove-button {
-    background-color: unset;
-    border: none;
-    padding: 0;
-}
-
-#selected-locations .selected-location .trash-can {
-    width: 24px;
-    height: 24px;
-    padding: 2px 0 0 8px;
-    transition: 300ms;
-}
-
-#selected-locations .selected-location .trash-can:hover {
-    transform: scale(1.2);
-}
-
 #continue-button {
     margin: 0 auto;
 }
