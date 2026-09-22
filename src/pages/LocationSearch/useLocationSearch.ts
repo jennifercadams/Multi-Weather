@@ -14,6 +14,7 @@ const useLocationSearch = () => {
 
     const handleSearch = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setResults(null);
         setIsLoading(true);
         await apiService.searchLocation(query)
             .then((searchResults) => {
