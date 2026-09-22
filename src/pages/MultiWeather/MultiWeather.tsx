@@ -9,6 +9,7 @@ const MultiWeather = () => {
         locationNames,
         locations,
         getLocationPanelProps,
+        getLocationPanelPlaceholderProps,
     } = useMultiWeather();
 
     return (
@@ -19,9 +20,10 @@ const MultiWeather = () => {
                     const locationPanelProps = getLocationPanelProps(location);
                     return <LocationPanel key={key} {...locationPanelProps}/>;
                 }) :
-                locationNames.map((_, index) => {
+                locationNames.map((location, index) => {
                     const key = `LocationPanelPlaceholder${index}`;
-                    return <LocationPanelPlaceholder key={key} />;
+                    const locationPanelPlaceholderProps = getLocationPanelPlaceholderProps(location);
+                    return <LocationPanelPlaceholder key={key} {...locationPanelPlaceholderProps}/>;
                 })}
             </div>
         </div>

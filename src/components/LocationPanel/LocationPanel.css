@@ -58,33 +58,25 @@ img.condition-icon {
 }
 
 /* LocationPanelPlaceholder */
-.location-panel .icon-placeholder {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 12px;
+.location-panel.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 372.8px;
 }
 
-.location-panel .name-placeholder {
+.location-panel.placeholder .location-name {
+    width: 280px;
+}
+
+.location-panel.placeholder .spinner {
     width: 120px;
-    height: 27.2px;
-    margin-bottom: 19.92px;
+    margin-top: 88px;
+    animation: spin 1.5s linear infinite, fade-in-out 1.5s linear infinite;
 }
 
-.location-panel .text-placeholder {
-    width: 150px;
-    height: 18.4px;
-    margin: 16px 0px;
-}
-
-.location-panel .placeholder {
-    background: linear-gradient(90deg, var(--primary-text-color), var(--border-color));
-    background-position: 0%;
-    background-size: 400%;
-    animation: gradient 3s linear infinite;
-}
-
-@keyframes gradient {
-    0% { background-position: 0%; }
-    50% { background-position: 100%; }
-    100% { background-position: 0%; }
+@keyframes fade-in-out {
+    0% { opacity: 10%; }
+    50% { opacity: 100%; }
+    100% { opacity: 10%; }
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router";
-import { LocationPanelProps } from "~components/LocationPanel/LocationPanel";
+import { useOutletContext, useSearchParams } from "react-router";
+import { LocationPanelPlaceholderProps, LocationPanelProps } from "~components/LocationPanel/LocationPanel";
 import { ApiService, Forecast } from "~services/ApiService";
 
 export type Temp = {
@@ -14,6 +14,7 @@ const useMultiWeather = () => {
     const [ locationNames, setLocationNames ] = useState<string[]>([]);
     const [ locations, setLocations ] = useState<Forecast[]>([]);
     const [ searchParams ] = useSearchParams();
+    const [ colorTheme ]: string[] = useOutletContext();
 
     useEffect(() => {
         async function getForecastData() {
@@ -125,11 +126,20 @@ const useMultiWeather = () => {
         };
     };
 
+    const getLocationPanelPlaceholderProps = (location: string): LocationPanelPlaceholderProps => {
+        const name = location.substring(0, location.indexOf(','));
+        return {
+            colorTheme: colorTheme,
+            locationName: name.trim(),
+        };
+    };
+
     return {
         isLoading,
         locationNames,
         locations,
         getLocationPanelProps,
+        getLocationPanelPlaceholderProps,
     };
 };
 

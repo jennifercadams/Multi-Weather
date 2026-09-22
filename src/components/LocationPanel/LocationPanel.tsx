@@ -63,16 +63,16 @@ const LocationPanel = (props: LocationPanelProps) => {
     );
 };
 
-const LocationPanelPlaceholder = () => {
+export type LocationPanelPlaceholderProps = {
+    colorTheme: string;
+    locationName: string;
+};
+
+const LocationPanelPlaceholder = (props: LocationPanelPlaceholderProps) => {
     return (
-        <div className="location-panel">
-            <div className="icon-placeholder placeholder" />
-            <div className="name-placeholder placeholder" />
-            <div className="text-placeholder placeholder" />
-            <div className="text-placeholder placeholder" />
-            <div className="text-placeholder placeholder" />
-            <div className="text-placeholder placeholder" />
-            <div className="text-placeholder placeholder" />
+        <div className="location-panel placeholder">
+            <h2 className="location-name">{props.locationName}</h2>
+            <img className="spinner" src={`/icons/spinner-${props.colorTheme}.svg`} />
         </div>
     );
 };
