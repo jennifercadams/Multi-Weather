@@ -18,6 +18,16 @@
     padding: 8px;
 }
 
+#search-form input#location-query:-webkit-autofill,
+#search-form input#location-query:-webkit-autofill:hover, 
+#search-form input#location-query:-webkit-autofill:focus,
+#search-form input#location-query:autofill,
+#search-form input#location-query:autofill:hover,
+#search-form input#location-query:autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--input-bg-color) inset !important;
+    -webkit-text-fill-color: var(--primary-text-color) !important;
+}
+
 #search-form #search-button {
     display: flex;
     align-items: center;
