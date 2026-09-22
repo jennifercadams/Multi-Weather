@@ -5,6 +5,7 @@ import "./MultiWeather.css";
 
 const MultiWeather = () => {
     const {
+        colorTheme,
         isLoading,
         locationNames,
         locations,
@@ -14,6 +15,10 @@ const MultiWeather = () => {
 
     return (
         <div id="multi-weather">
+            <p id="loading-message">
+                <img className="icon" src={`/icons/warning-${colorTheme}.svg`} />
+                Connecting to server. Loading may take up to a minute for the first request.
+            </p>
             <div id="location-container">
                 {!isLoading ? locations.map((location, index) => {
                     const key = `LocationPanel${index}`;

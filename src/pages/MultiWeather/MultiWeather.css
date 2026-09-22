@@ -1,6 +1,11 @@
 #multi-weather {
-    padding: 8px 24px 16px;
+    padding: 0px 24px 16px;
     box-sizing: border-box;
+}
+
+#multi-weather #loading-message {
+    margin: 0;
+    transform: translateY(-8px);
 }
 
 #location-container {

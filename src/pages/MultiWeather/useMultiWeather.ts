@@ -17,11 +17,22 @@ const useMultiWeather = () => {
     const [ colorTheme ]: string[] = useOutletContext();
 
     useEffect(() => {
+        const loadingMessage = document.getElementById("loading-message");
+        const timeoutId = window.setTimeout(() => {
+            if (isLoading && loadingMessage != null) {
+                loadingMessage.classList.add("loading");
+            }
+        }, 1000);
+
         async function getForecastData() {
             setIsLoading(true);
             const data = await apiService.getForecast(locationNames);
             setLocations(data);
             setIsLoading(false);
+            window.clearTimeout(timeoutId);
+            if (loadingMessage != null) {
+                loadingMessage.classList.remove("loading");
+            }
         }
 
         const locationNames = searchParams.getAll("q") || [];
@@ -135,6 +146,7 @@ const useMultiWeather = () => {
     };
 
     return {
+        colorTheme,
         isLoading,
         locationNames,
         locations,
