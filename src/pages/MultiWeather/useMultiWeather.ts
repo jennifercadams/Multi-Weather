@@ -28,6 +28,18 @@ const useMultiWeather = () => {
         getForecastData().then();
     }, []);
 
+    const formatRegionString = (region?: string, country?: string): string => {
+        if (region == null && country == null) {
+            return "";
+        } else if (region == null && country != null) {
+            return country;
+        } else if (region != null && country == null) {
+            return region;
+        } else {
+            return [ region, country ].join(", ");
+        }
+    };
+
     const formatDateTimeString = (timeZone?: string): string => {
         if (!timeZone)
             return "";
@@ -96,6 +108,7 @@ const useMultiWeather = () => {
     const getLocationPanelProps = (location: Forecast): LocationPanelProps => {
         return {
             locationName: location.LocationName || "",
+            region: formatRegionString(location.Region, location.Country),
             dateTime: formatDateTimeString(location.TimeZone),
             conditionText: location.ConditionText || "",
             conditionIcon: location.ConditionIcon || "",

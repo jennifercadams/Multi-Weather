@@ -4,6 +4,7 @@ import "./LocationPanel.css";
 
 export type LocationPanelProps = {
     locationName: string;
+    region: string;
     dateTime: string;
     conditionText: string;
     conditionIcon: string;
@@ -23,6 +24,7 @@ const LocationPanel = (props: LocationPanelProps) => {
     return (
         <div className="location-panel">
             <h2 className="location-name">{props.locationName}</h2>
+            <p className="location-region">{props.region}</p>
             <p className="location-time">{props.dateTime}</p>
             <div className="current">
                 <img className="condition-icon" src={props.conditionIcon} />

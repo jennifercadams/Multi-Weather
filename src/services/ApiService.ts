@@ -49,6 +49,8 @@ export type Forecast = {
     LocationQuery: string;
     LocationFound: boolean;
     LocationName?: string;
+    Region?: string;
+    Country?: string;
     TimeZone?: string;
     ConditionText?: string;
     ConditionIcon?: string;
