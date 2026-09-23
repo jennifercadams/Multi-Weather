@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useOutletContext, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { LocationPanelPlaceholderProps, LocationPanelProps } from "~components/LocationPanel/LocationPanel";
+import usePageContext, { PageContextType, PageContext } from "~pages/PageLayout/usePageContext";
 import { ApiService, Forecast } from "~services/ApiService";
 
 export type Temp = {
@@ -14,7 +15,8 @@ const useMultiWeather = () => {
     const [ locationNames, setLocationNames ] = useState<string[]>([]);
     const [ locations, setLocations ] = useState<Forecast[]>([]);
     const [ searchParams ] = useSearchParams();
-    const [ colorTheme ]: string[] = useOutletContext();
+    const { pageContext }: PageContextType = usePageContext();
+    const { colorTheme }: PageContext = pageContext as PageContext;
 
     useEffect(() => {
         const loadingMessage = document.getElementById("loading-message");

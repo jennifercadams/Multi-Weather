@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import usePageContext, { PageContextType, PageContext } from "~pages/PageLayout/usePageContext";
 import { ApiService, SearchLocationResult } from "~services/ApiService";
 
 const useLocationSearch = () => {
@@ -8,6 +9,8 @@ const useLocationSearch = () => {
     const [ results, setResults ] = useState<SearchLocationResult[] | null>(null);
     const [ error, setError ] = useState("");
     const [ selections, setSelections ] = useState<SearchLocationResult[]>([]);
+    const { pageContext }: PageContextType = usePageContext();
+    const { colorTheme }: PageContext = pageContext as PageContext;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setError("");
@@ -60,6 +63,7 @@ const useLocationSearch = () => {
     };
 
     return {
+        colorTheme,
         isLoading,
         query,
         results,

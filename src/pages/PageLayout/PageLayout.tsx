@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Outlet } from "react-router";
 import LocalStorageModal, { LocalStorageModalProps } from "~components/LocalStorageModal/LocalStorageModal";
+import { PageContextType, PageContext } from "./usePageContext";
 import usePageLayout from "./usePageLayout";
 import "./PageLayout.css";
 
@@ -27,6 +28,8 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
         savedQueries,
         setSavedQueries,
     };
+
+    const pageContext: PageContext = { colorTheme };
 
     return (
         <div id="page">
@@ -56,7 +59,7 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
                         </button>
                     </div>
                 </div>
-                <Outlet context={[colorTheme]} />
+                <Outlet context={{ pageContext } satisfies PageContextType} />
             </div>
             <LocalStorageModal {...localStorageModalProps} />
             <div id="footer">
