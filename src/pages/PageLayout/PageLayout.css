@@ -146,7 +146,9 @@ img.tooltip-icon {
         font-size: 1.75rem;
     }
 
-    #action-buttons #save, #action-buttons #copy {
+    #action-buttons #save, 
+    #action-buttons #copy,
+    #action-buttons #load {
         display: none;
     }
 }
