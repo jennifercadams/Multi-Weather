@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const themes = [ "dark", "light" ];
 
@@ -9,6 +9,11 @@ const usePageLayout = () => {
     const [ colorTheme, setColorTheme ] = useState<string>(initialTheme);
     const [ showSaveModal, setShowSaveModal ] = useState(false);
     const [ savedQueries, setSavedQueries ] = useState(new Map<string, string>());
+
+    useLayoutEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        setShowSaveModal(false);
+    }, [location.pathname]);
 
     useEffect(() => {
         document.getElementsByTagName("html")[0].setAttribute("data-color-theme", colorTheme);
