@@ -82,38 +82,40 @@ form input:autofill:focus {
     display: flex;
 }
 
-button {
+button, .ui-button {
     font-size: 1rem;
+    text-decoration: none;
     color: var(--primary-text-color);
     background-color: var(--button-bg-color);
-    border-color: var(--button-border-color);
+    border: outset 2px var(--button-border-color);
     border-radius: 5px;
     padding: 16px;
     cursor: pointer;
 }
 
-button:hover {
+button:hover, .ui-button:hover {
+    color: var(--primary-text-color);
     background-color: var(--button-hover-color);
     border-color: var(--button-hover-color);
 }
 
-button:disabled {
+button:disabled, .ui-button:disabled {
     background-color: var(--button-disabled-color);
     border-color: var(--button-disabled-color);
 }
 
-button.text-icon-button {
+.text-icon-button {
     display: flex;
     align-items: center;
 }
 
-button.text-icon-button .icon {
+.text-icon-button .icon {
     width: 16px;
     height: 16px;
     margin: 0 8px 2px 0;
 }
 
-button.text-icon-button .button-text {
+.text-icon-button .button-text {
     margin: 0;
 }
 
