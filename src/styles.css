@@ -78,6 +78,14 @@ form input:autofill:focus {
     -webkit-text-fill-color: var(--primary-text-color) !important;
 }
 
+img {
+    display: block;
+}
+
+img.inline {
+    display: inline-block;
+}
+
 .buttons {
     display: flex;
 }

@@ -18,7 +18,7 @@ const MultiWeather = () => {
     return (
         <div id="multi-weather">
             <p id="loading-message">
-                <img className="icon" src={`/icons/warning-${colorTheme}.svg`} />
+                <img className="icon inline" src={`/icons/warning-${colorTheme}.svg`} />
                 Connecting to server. Loading may take up to a minute for the first request.
             </p>
             {!isLoading && locations != null && <div className="location-container">

@@ -46,7 +46,7 @@ const SearchForm = (props: SearchFormProps) => {
                 </div>}
                 {error && <p className="error">{error}</p>}
                 <p id="loading-message" className={isLoading ? "loading" : ""}>
-                    <img className="icon" src={`/icons/warning-${colorTheme}.svg`} />
+                    <img className="icon inline" src={`/icons/warning-${colorTheme}.svg`} />
                     Connecting to server. Loading may take up to a minute for the first request.
                 </p>
             </div>
