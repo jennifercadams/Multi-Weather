@@ -12,6 +12,7 @@ const MultiWeather = () => {
         locations,
         getLocationPanelProps,
         getLocationPanelPlaceholderProps,
+        handleLoadLocal,
     } = useMultiWeather();
 
     return (
@@ -34,15 +35,21 @@ const MultiWeather = () => {
                     return <LocationPanelPlaceholder key={key} {...locationPanelPlaceholderProps}/>;
                 })}
             </div>}
-            {!isLoading && locationNames.length == 0 && <div className="no-locations">
+            {!isLoading && (locationNames.length == 0 || locations == null) && <div className="no-locations">
                 <h2>Oops!</h2>
-                <p>No locations have been selected yet.</p>
-                <p>Please return to the <Link to="/">search page</Link> and try again.</p>
-            </div>}
-            {!isLoading && locations == null && <div className="no-locations">
-                <h2>Oops!</h2>
-                <p>There was an error retrieving the requested weather data.</p>
-                <p>Please return to the <Link to="/">search page</Link> and try again.</p>
+                {locationNames.length == 0 ? <p className="text">No locations have been selected yet.</p> : 
+                <p className="text">There was an error retrieving the requested weather data.</p>}
+                <p className="text">Please return to the search page or load locations from local storage.</p>
+                <div className="buttons">
+                    <Link id="search-link" className="ui-button text-icon-button" to="/">
+                        <img className="icon" src={`/icons/magnifying-glass-${colorTheme}.svg`} />
+                        <p className="button-text">Search</p>
+                    </Link>
+                    <button id="load-button" className="text-icon-button" onClick={handleLoadLocal}>
+                        <img className="icon" src={`/icons/folder-${colorTheme}.svg`} />
+                        <p className="button-text">Load</p>
+                    </button>
+                </div>
             </div>}
         </div>
     );

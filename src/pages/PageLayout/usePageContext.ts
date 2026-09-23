@@ -4,6 +4,7 @@ export type PageContextType = { pageContext: PageContext | null };
 
 export type PageContext = {
     colorTheme: string;
+    handleLoadLocal: () => void;
 };
 
 const usePageContext = () => {

@@ -34,7 +34,7 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
         setSavedQueries,
     };
 
-    const pageContext: PageContext = { colorTheme };
+    const pageContext: PageContext = { colorTheme, handleLoadLocal };
 
     return (
         <div id="page">

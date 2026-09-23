@@ -16,7 +16,7 @@ const useMultiWeather = () => {
     const [ locations, setLocations ] = useState<Forecast[]>([]);
     const [ searchParams ] = useSearchParams();
     const { pageContext }: PageContextType = usePageContext();
-    const { colorTheme }: PageContext = pageContext as PageContext;
+    const { colorTheme, handleLoadLocal }: PageContext = pageContext as PageContext;
 
     useEffect(() => {
         const loadingMessage = document.getElementById("loading-message");
@@ -160,6 +160,7 @@ const useMultiWeather = () => {
         locations,
         getLocationPanelProps,
         getLocationPanelPlaceholderProps,
+        handleLoadLocal,
     };
 };
 
