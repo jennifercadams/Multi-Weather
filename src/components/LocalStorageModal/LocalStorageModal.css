@@ -53,21 +53,6 @@
     margin-top: 32px;
 }
 
-#local-storage-modal button {
-    display: flex;
-    align-items: center;
-}
-
-#local-storage-modal .icon {
-    width: 16px;
-    height: 16px;
-    margin: 0 8px 2px 0;
-}
-
-#local-storage-modal .button-text {
-    margin: 0;
-}
-
 .saved-query {
     display: flex;
     align-items: center;
@@ -76,10 +61,6 @@
     border-radius: 5px;
     padding: 16px;
     margin: 8px;
-}
-
-.saved-query .buttons {
-    display: flex;
 }
 
 .saved-query button.icon-button img.icon-button-img {

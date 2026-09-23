@@ -78,6 +78,10 @@ form input:autofill:focus {
     -webkit-text-fill-color: var(--primary-text-color) !important;
 }
 
+.buttons {
+    display: flex;
+}
+
 button {
     font-size: 1rem;
     color: var(--primary-text-color);
