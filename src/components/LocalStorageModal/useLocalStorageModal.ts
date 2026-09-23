@@ -1,13 +1,15 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { useSearchParams } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { LocalStorageModalProps } from "./LocalStorageModal";
 
 const useLocalStorageModal = (props: LocalStorageModalProps) => {
     const [ saveName, setSaveName ] = useState("");
     const [ searchParams ] = useSearchParams();
+    const navigate = useNavigate();
 
     const {
         setShowSaveModal,
+        setShowLoadModal,
         savedQueries,
         setSavedQueries,
     } = props;
@@ -22,6 +24,7 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
 
     const handleClose = () => {
         setShowSaveModal(false);
+        setShowLoadModal(false);
         setSaveName("");
     };
 
@@ -41,13 +44,37 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
 
         setSavedQueries(newMap);
         setShowSaveModal(false);
+        setSaveName("");
+    };
+
+    const handleLoad = (queryName: string) => {
+        const query = "?" + savedQueries.get(queryName);
+        if (!query) {
+            return;
+        }
+
+        navigate({ pathname: "/current", search: query }, { replace: true });
+        setShowLoadModal(false);
+    };
+
+    const handleDelete = (queryName: string) => {
+        const newMap = new Map(savedQueries);
+        newMap.delete(queryName);
+
+        const queriesJson = JSON.stringify(Object.fromEntries(newMap));
+        localStorage.setItem("savedQueries", queriesJson);
+
+        setSavedQueries(newMap);
     };
 
     return {
         saveName,
+        savedQueries,
         handleClose,
         handleChange,
         handleSave,
+        handleLoad,
+        handleDelete,
     };
 };
 

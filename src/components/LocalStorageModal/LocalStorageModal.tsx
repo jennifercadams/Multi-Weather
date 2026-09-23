@@ -6,27 +6,34 @@ export type LocalStorageModalProps = {
     colorTheme: string;
     showSaveModal: boolean;
     setShowSaveModal: React.Dispatch<React.SetStateAction<boolean>>;
+    showLoadModal: boolean;
+    setShowLoadModal: React.Dispatch<React.SetStateAction<boolean>>;
     savedQueries: Map<string, string>;
     setSavedQueries: React.Dispatch<React.SetStateAction<Map<string, string>>>;
 };
 
 const LocalStorageModal = (props: LocalStorageModalProps) => {
-    const { colorTheme, showSaveModal } = props;
+    const { colorTheme, showSaveModal, showLoadModal } = props;
 
     const {
         saveName,
+        savedQueries,
         handleClose,
         handleChange,
         handleSave,
+        handleLoad,
+        handleDelete,
     } = useLocalStorageModal(props);
 
+    const queryNames = Array.from(savedQueries.keys());
+
     return (
-        <div id="local-storage-modal" className={showSaveModal ? "open" : ""}>
+        <div id="local-storage-modal" className={showSaveModal || showLoadModal ? "open" : ""}>
             <div id="local-storage">
                 <button className="close icon-button" onClick={handleClose}>
                     <img className="close-button-img" src={`/icons/close-${colorTheme}.svg`} />
                 </button>
-                <div id="save-to-local">
+                {showSaveModal && <div id="save-to-local">
                     <h2>Save to Local Storage</h2>
                     <p>Enter a name to save the current set of locations to your browser&apos;s local storage.</p>
                     <form id="save-form" onSubmit={handleSave}>
@@ -37,6 +44,25 @@ const LocalStorageModal = (props: LocalStorageModalProps) => {
                         </button>
                     </form>
                 </div>
+                {showLoadModal && <div id="load-from-local">
+                    <h2>Local Storage</h2>
+                    <p>Load or delete saved location sets from your browser&apos;s local storage.</p>
+                    {queryNames.map((query, index) => {
+                        return (
+                            <div className="saved-query" key={`query-${index}`}>
+                                {query}
+                                <div className="buttons">
+                                    <button id="load-button" className="icon-button" onClick={() => handleLoad(query)}>
+                                        <img className="icon-button-img" src={`/icons/file-import-${colorTheme}.svg`} />
+                                    </button>
+                                    <button id="delete-button" className="icon-button" onClick={() => handleDelete(query)}>
+                                        <img className="icon-button-img" src={`/icons/trash-can-${colorTheme}.svg`} />
+                                    </button>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>}
             </div>
         </div>
     );

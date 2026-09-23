@@ -8,11 +8,13 @@ const usePageLayout = () => {
     const initialTheme = localTheme != null && themes.includes(localTheme) ? localTheme : "dark";
     const [ colorTheme, setColorTheme ] = useState<string>(initialTheme);
     const [ showSaveModal, setShowSaveModal ] = useState(false);
+    const [ showLoadModal, setShowLoadModal ] = useState(false);
     const [ savedQueries, setSavedQueries ] = useState(new Map<string, string>());
 
     useLayoutEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         setShowSaveModal(false);
+        setShowLoadModal(false);
     }, [location.pathname]);
 
     useEffect(() => {
@@ -27,6 +29,10 @@ const usePageLayout = () => {
 
     const handleSaveLocal = () => {
         setShowSaveModal(true);
+    };
+
+    const handleLoadLocal = () => {
+        setShowLoadModal(true);
     };
 
     const showOnClickTooltip = (target: HTMLElement) => {
@@ -54,10 +60,13 @@ const usePageLayout = () => {
         colorTheme,
         showSaveModal,
         setShowSaveModal,
+        showLoadModal,
+        setShowLoadModal,
         savedQueries,
         setSavedQueries,
         handleCopyToClipboard,
         handleSaveLocal,
+        handleLoadLocal,
         handleToggleTheme,
     };
 };

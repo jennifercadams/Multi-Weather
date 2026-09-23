@@ -14,10 +14,13 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
         colorTheme,
         showSaveModal,
         setShowSaveModal,
+        showLoadModal,
+        setShowLoadModal,
         savedQueries,
         setSavedQueries,
         handleCopyToClipboard,
         handleSaveLocal,
+        handleLoadLocal,
         handleToggleTheme,
     } = usePageLayout();
 
@@ -25,6 +28,8 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
         colorTheme,
         showSaveModal,
         setShowSaveModal,
+        showLoadModal,
+        setShowLoadModal,
         savedQueries,
         setSavedQueries,
     };
@@ -49,6 +54,10 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
                             <button id="save" className="icon-button tooltip" onClick={handleSaveLocal}>
                                 <img className="icon-button-img" src={`/icons/save-${colorTheme}.svg`} />
                                 <span className="tooltip-text hover">Save to local</span>
+                            </button>
+                            <button id="load" className="icon-button tooltip" onClick={handleLoadLocal}>
+                                <img className="icon-button-img" src={`/icons/folder-${colorTheme}.svg`} />
+                                <span className="tooltip-text hover">Load from local</span>
                             </button>
                         </>}
                         <button id="theme-toggle" className="tooltip" onClick={handleToggleTheme}>
