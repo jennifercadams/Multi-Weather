@@ -1,0 +1,70 @@
+#local-storage-modal {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    z-index: 10;
+}
+
+#local-storage-modal.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#local-storage-modal h2 {
+    margin-top: 8px;
+}
+
+#local-storage-modal p {
+    line-height: 1.4;
+}
+
+#local-storage-modal button {
+    display: flex;
+    align-items: center;
+}
+
+#local-storage-modal .icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 8px 2px 0;
+}
+
+#local-storage-modal .button-text {
+    margin: 0;
+}
+
+#local-storage-modal button.close.icon-button {
+    position: absolute;
+    transform: translate(448px, -28px);
+    transition: 300ms;
+}
+
+#local-storage-modal button.close.icon-button:hover {
+    transform: translate(448px, -28px) scale(1.2);
+}
+
+#local-storage-modal button.close.icon-button img.close-button-img {
+    width: 28px;
+    height: 28px;
+    padding: 16px;
+}
+
+#local-storage {
+    width: 480px;
+    height: 192px;
+    background-color: var(--bg-color);
+    border: solid 2px var(--border-color);
+    border-radius: 20px;
+    box-shadow: 2px 4px 8px 2px var(--border-color);
+    padding: 24px;
+    margin: auto;
+}
+
+#local-storage-modal #save-form {
+    margin-top: 32px;
+}

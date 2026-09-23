@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Outlet } from "react-router";
+import LocalStorageModal, { LocalStorageModalProps } from "~components/LocalStorageModal/LocalStorageModal";
 import usePageLayout from "./usePageLayout";
 import "./PageLayout.css";
 
@@ -10,10 +11,22 @@ export type PageLayoutProps = {
 const PageLayout = ({showActionButtons}: PageLayoutProps) => {
     const {
         colorTheme,
+        showSaveModal,
+        setShowSaveModal,
+        savedQueries,
+        setSavedQueries,
         handleCopyToClipboard,
         handleSaveLocal,
         handleToggleTheme,
     } = usePageLayout();
+
+    const localStorageModalProps: LocalStorageModalProps = {
+        colorTheme,
+        showSaveModal,
+        setShowSaveModal,
+        savedQueries,
+        setSavedQueries,
+    };
 
     return (
         <div id="page">
@@ -33,10 +46,6 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
                             <button id="save" className="icon-button tooltip" onClick={handleSaveLocal}>
                                 <img className="icon-button-img" src={`/icons/save-${colorTheme}.svg`} />
                                 <span className="tooltip-text hover">Save to local</span>
-                                <span className="tooltip-text active">
-                                    <img className="tooltip-icon" src={`/icons/checkmark-${colorTheme}.svg`} />
-                                    Saved
-                                </span>
                             </button>
                         </>}
                         <button id="theme-toggle" title="Toggle Dark/Light Mode" onClick={handleToggleTheme}>
@@ -49,6 +58,7 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
                 </div>
                 <Outlet context={[colorTheme]} />
             </div>
+            <LocalStorageModal {...localStorageModalProps} />
             <div id="footer">
                 <p id="weather-api-credit">Powered by <a href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
             </div>

@@ -7,6 +7,8 @@ const usePageLayout = () => {
     const localTheme = localStorage.getItem("theme");
     const initialTheme = localTheme != null && themes.includes(localTheme) ? localTheme : "dark";
     const [ colorTheme, setColorTheme ] = useState<string>(initialTheme);
+    const [ showSaveModal, setShowSaveModal ] = useState(false);
+    const [ savedQueries, setSavedQueries ] = useState(new Map<string, string>());
 
     useEffect(() => {
         document.getElementsByTagName("html")[0].setAttribute("data-color-theme", colorTheme);
@@ -18,9 +20,8 @@ const usePageLayout = () => {
         showOnClickTooltip(e.target as HTMLElement);
     };
 
-    const handleSaveLocal = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        localStorage.setItem("url", window.location.href);
-        showOnClickTooltip(e.target as HTMLElement);
+    const handleSaveLocal = () => {
+        setShowSaveModal(true);
     };
 
     const showOnClickTooltip = (target: HTMLElement) => {
@@ -44,6 +45,10 @@ const usePageLayout = () => {
 
     return {
         colorTheme,
+        showSaveModal,
+        setShowSaveModal,
+        savedQueries,
+        setSavedQueries,
         handleCopyToClipboard,
         handleSaveLocal,
         handleToggleTheme,
