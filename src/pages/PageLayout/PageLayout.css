@@ -134,3 +134,13 @@ img.tooltip-icon {
 #theme-toggle-bg.light {
     background-color: #b1acceb5;
 }
+
+@media (max-width: 480px) {
+    #page #header h1 {
+        font-size: 1.75rem;
+    }
+
+    #action-buttons #save, #action-buttons #copy {
+        display: none;
+    }
+}

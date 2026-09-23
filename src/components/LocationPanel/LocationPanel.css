@@ -57,6 +57,17 @@ img.condition-icon {
     color: var(--secondary-text-color);
 }
 
+@media (max-width: 380px) {
+    .location-temp {
+        font-size: 1.5rem;
+    }
+
+    img.condition-icon {
+        width: 96px;
+        height: 96px;
+    }
+}
+
 /* LocationPanelPlaceholder */
 .location-panel.placeholder {
     display: flex;

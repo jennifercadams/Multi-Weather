@@ -49,4 +49,12 @@
     .no-locations p {
         font-size: 1rem;
     }
+
+    #multi-weather #loading-message {
+        display: none;
+    }
+
+    #multi-weather #loading-message.loading {
+        display: block;
+    }
 }
