@@ -95,6 +95,8 @@ button.icon-button img.icon-button-img:hover {
     line-height: 1.4;
     transition-delay: 0s;
     transition-property: visibility;
+    margin: 0;
+    padding: 16px 0;
 }
 
 #loading-message img.icon {
