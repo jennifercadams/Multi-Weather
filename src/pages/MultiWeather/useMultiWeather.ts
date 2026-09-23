@@ -43,9 +43,10 @@ const useMultiWeather = () => {
             getForecastData().then();
         } else {
             setIsLoading(false);
+            setLocations([]);
             window.clearTimeout(timeoutId);
         }
-    }, []);
+    }, [searchParams]);
 
     const formatRegionString = (region?: string, country?: string): string => {
         if (region == null && country == null) {
