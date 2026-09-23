@@ -28,7 +28,7 @@ const useMultiWeather = () => {
 
         async function getForecastData() {
             setIsLoading(true);
-            const data = await apiService.getForecast(locationNames);
+            const data = await apiService.getForecast(newLocationNames);
             setLocations(data);
             setIsLoading(false);
             window.clearTimeout(timeoutId);
@@ -37,9 +37,9 @@ const useMultiWeather = () => {
             }
         }
 
-        const locationNames = searchParams.getAll("q") || [];
-        setLocationNames(locationNames);
-        if (locationNames.length > 0) {
+        const newLocationNames = searchParams.getAll("q") || [];
+        setLocationNames(newLocationNames);
+        if (newLocationNames.length > 0) {
             getForecastData().then();
         } else {
             setIsLoading(false);
