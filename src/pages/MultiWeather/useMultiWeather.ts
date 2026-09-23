@@ -37,7 +37,12 @@ const useMultiWeather = () => {
 
         const locationNames = searchParams.getAll("q") || [];
         setLocationNames(locationNames);
-        getForecastData().then();
+        if (locationNames.length > 0) {
+            getForecastData().then();
+        } else {
+            setIsLoading(false);
+            window.clearTimeout(timeoutId);
+        }
     }, []);
 
     const formatRegionString = (region?: string, country?: string): string => {

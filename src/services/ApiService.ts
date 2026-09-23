@@ -25,14 +25,15 @@ export class ApiService {
 
         const currentResults: Forecast[] = await fetch(url)
             .then(async (jsonResponse) => {
-                const response = await jsonResponse.json();
                 if (!jsonResponse.ok)
-                    throw new Error(response.error.message);
+                    throw new Error("getForecast request failed");
 
+                const response = await jsonResponse.json();
                 return response;
             })
             .catch((error) => {
                 console.error("Error fetching current data:", error);
+                return null;
             });
 
         return currentResults;

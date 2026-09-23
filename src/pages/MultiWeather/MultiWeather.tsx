@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router";
 import { LocationPanel, LocationPanelPlaceholder } from "~components/LocationPanel/LocationPanel";
 import useMultiWeather from "./useMultiWeather";
 import "./MultiWeather.css";
@@ -19,18 +20,30 @@ const MultiWeather = () => {
                 <img className="icon" src={`/icons/warning-${colorTheme}.svg`} />
                 Connecting to server. Loading may take up to a minute for the first request.
             </p>
-            <div id="location-container">
-                {!isLoading ? locations.map((location, index) => {
+            {!isLoading && locations != null && <div className="location-container">
+                {locations.map((location, index) => {
                     const key = `LocationPanel${index}`;
                     const locationPanelProps = getLocationPanelProps(location);
                     return <LocationPanel key={key} {...locationPanelProps}/>;
-                }) :
-                locationNames.map((location, index) => {
+                })}
+            </div>}
+            {isLoading && <div className="location-container">
+                {locationNames.map((location, index) => {
                     const key = `LocationPanelPlaceholder${index}`;
                     const locationPanelPlaceholderProps = getLocationPanelPlaceholderProps(location);
                     return <LocationPanelPlaceholder key={key} {...locationPanelPlaceholderProps}/>;
                 })}
-            </div>
+            </div>}
+            {!isLoading && locationNames.length == 0 && <div className="no-locations">
+                <h2>Oops!</h2>
+                <p>No locations have been selected yet.</p>
+                <p>Please return to the <Link to="/">search page</Link> and try again.</p>
+            </div>}
+            {!isLoading && locations == null && <div className="no-locations">
+                <h2>Oops!</h2>
+                <p>There was an error retrieving the requested weather data.</p>
+                <p>Please return to the <Link to="/">search page</Link> and try again.</p>
+            </div>}
         </div>
     );
 };
