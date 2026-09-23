@@ -51,6 +51,33 @@ a:hover {
     color: var(--hover-color);
 }
 
+form {
+    display: flex;
+    gap: 8px;
+    height: 48px;
+}
+
+form input {
+    flex: 100%;
+    background-color: var(--input-bg-color);
+    color: var(--primary-text-color);
+    font-size: 1rem;
+    border: solid 2px var(--border-color);
+    border-radius: 2px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover, 
+form input:-webkit-autofill:focus,
+form input:autofill,
+form input:autofill:hover,
+form input:autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--input-bg-color) inset !important;
+    -webkit-text-fill-color: var(--primary-text-color) !important;
+}
+
 button {
     font-size: 1rem;
     color: var(--primary-text-color);
@@ -69,6 +96,21 @@ button:hover {
 button:disabled {
     background-color: var(--button-disabled-color);
     border-color: var(--button-disabled-color);
+}
+
+button.text-icon-button {
+    display: flex;
+    align-items: center;
+}
+
+button.text-icon-button .icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 8px 2px 0;
+}
+
+button.text-icon-button .button-text {
+    margin: 0;
 }
 
 button.icon-button {

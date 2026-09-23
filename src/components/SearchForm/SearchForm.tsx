@@ -31,10 +31,10 @@ const SearchForm = (props: SearchFormProps) => {
             <p id="search-form-description">Search for locations using postal code, place name, or latitude and longitude.</p>
             <form id="search-form" onSubmit={handleSearch}>
                 <input id="location-query" className={colorTheme} type="text" value={query} onChange={handleChange} />
-                <button id="search-button" type="submit" disabled={isLoading}>
+                <button id="search-button" className="text-icon-button" type="submit" disabled={isLoading}>
                     {!isLoading && <img className="icon" src={`/icons/magnifying-glass-${colorTheme}.svg`} />}
                     {isLoading && <img className="icon spinner" src={`/icons/spinner-${colorTheme}.svg`} />}
-                    <p id="search-button-text">Search</p>
+                    <p id="search-button-text" className="button-text">Search</p>
                 </button>
             </form>
             <div id="search-results-container">
