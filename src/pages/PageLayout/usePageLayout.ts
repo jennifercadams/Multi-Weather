@@ -33,9 +33,11 @@ const usePageLayout = () => {
         const hoverTooltip = target.parentElement?.querySelector(".tooltip-text.hover") as HTMLElement;
         const activeTooltip = target.parentElement?.querySelector(".tooltip-text.active") as HTMLElement;
         hoverTooltip.style.setProperty("visibility", "hidden");
+        hoverTooltip.style.setProperty("transition-delay", "0s");
         activeTooltip.style.setProperty("visibility", "visible");
         window.setTimeout(() => {
             hoverTooltip.style.removeProperty("visibility");
+            hoverTooltip.style.removeProperty("transition-delay");
             activeTooltip.style.setProperty("visibility", "hidden");
         }, 1000);
     };

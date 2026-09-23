@@ -51,11 +51,12 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
                                 <span className="tooltip-text hover">Save to local</span>
                             </button>
                         </>}
-                        <button id="theme-toggle" title="Toggle Dark/Light Mode" onClick={handleToggleTheme}>
+                        <button id="theme-toggle" className="tooltip" onClick={handleToggleTheme}>
                             <div id="theme-toggle-bg" className={colorTheme} />
                             <img id="light-icon" className={colorTheme} src={`/icons/sun-light.svg`}></img>
                             <img id="dark-icon" className={colorTheme} src={`/icons/moon-dark.svg`}></img>
                             <div id="theme-toggle-slider" className={colorTheme} />
+                            <span className="tooltip-text hover">Toggle theme</span>
                         </button>
                     </div>
                 </div>

@@ -49,11 +49,14 @@
 
 .tooltip-text {
     visibility: hidden;
+    transition-delay: 0s;
+    transition-property: visibility;
     position: absolute;
-    top: 100%;
+    top: 120%;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--tooltip-bg-color);
+    box-shadow: 2px 3px 4px 1px var(--button-shadow-color);
     color: var(--primary-text-color);
     text-align: center;
     white-space: nowrap;
@@ -86,6 +89,8 @@ img.tooltip-icon {
 
 .tooltip:hover .tooltip-text.hover {
     visibility: visible;
+    transition-delay: 0.3s;
+    transition-property: visibility;
 }
 
 /* Theme Toggle */
