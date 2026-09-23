@@ -10,6 +10,7 @@ const LocationSearch = () => {
         isLoading,
         query,
         results,
+        error,
         selections,
         handleChange,
         handleSearch,
@@ -20,7 +21,7 @@ const LocationSearch = () => {
 
     const [ colorTheme ]: string[] = useOutletContext();
 
-    const searchFormProps = { colorTheme, isLoading, query, results, handleChange, handleSearch, handleAdd };
+    const searchFormProps = { colorTheme, isLoading, query, results, error, handleChange, handleSearch, handleAdd };
     const selectedLocationsProps = { colorTheme, selections, handleRemove, getQueries };
 
     return (

@@ -7,6 +7,7 @@ export type SearchFormProps = {
     isLoading: boolean;
     query: string;
     results: SearchLocationResult[] | null;
+    error?: string;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleSearch: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
     handleAdd: (arg: SearchLocationResult) => void;
@@ -18,6 +19,7 @@ const SearchForm = (props: SearchFormProps) => {
         isLoading,
         query,
         results,
+        error,
         handleChange,
         handleSearch,
         handleAdd,
@@ -37,12 +39,12 @@ const SearchForm = (props: SearchFormProps) => {
             </form>
             <div id="search-results-container">
                 {results && <div id="search-results">
-                    {(results.length > 0 ? results.map((result, index) => {
+                    {results.map((result, index) => {
                         const key = `SearchResult${index}`;
                         return (<button key={key} onClick={() => handleAdd(result)}>{result.FullName}</button>);
-                    }) : 
-                    <p className="error">No results for search query.</p>)}
+                    })}
                 </div>}
+                {error && <p className="error">{error}</p>}
                 <p id="loading-message" className={isLoading ? "loading" : ""}>
                     <img className="icon" src={`/icons/warning-${colorTheme}.svg`} />
                     Connecting to server. Loading may take up to a minute for the first request.

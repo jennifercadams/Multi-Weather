@@ -4,16 +4,17 @@ export class ApiService {
     public async searchLocation(locationQuery: string) {
         const url = `${this.baseUrl}/multiweather/searchlocation?q=${locationQuery}`;
 
-        const searchResults: SearchLocationResult[] = await fetch(url)
+        const searchResults: SearchResults = await fetch(url)
             .then(async (jsonResponse) => {
-                const response = await jsonResponse.json();
                 if (!jsonResponse.ok)
-                    throw new Error(response.error.message);
+                    throw new Error("searchLocation request failed");
 
-                return response;
+                const response = await jsonResponse.json();
+                return { Results: response };
             })
             .catch((error) => {
                 console.error("Error searching location:", error);
+                return { Error: "Error retrieving search results."};
             });
         
         return searchResults;
@@ -39,6 +40,11 @@ export class ApiService {
         return currentResults;
     }
 
+}
+
+export type SearchResults = {
+    Results?: SearchLocationResult[],
+    Error?: string;
 }
 
 export type SearchLocationResult = {
