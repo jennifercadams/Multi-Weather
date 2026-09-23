@@ -9,7 +9,7 @@
             ]
         },
         "strict": true,
-        "target": "es2016",
+        "target": "es2019",
         "ignoreDeprecations": "6.0",
         "noUncheckedSideEffectImports": false
     },
