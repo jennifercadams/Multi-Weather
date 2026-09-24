@@ -17,20 +17,25 @@
     box-sizing: border-box;
 }
 #page #header h1 {
-    margin: 0;
+    margin: 17px 0;
 }
 
-#page #header #action-buttons {
+#page #header #header-buttons {
     display: flex;
     align-items: center;
     height: 70px;
 }
 
-#page #header #action-buttons .icon-button {
+#page #header #action-buttons {
+    display: flex;
+    align-items: center;
+}
+
+#page #header #header-buttons .icon-button {
     margin: 6px;
 }
 
-#page #header #action-buttons .icon-button-img {
+#page #header #header-buttons .icon-button-img {
     width: 32px;
     height: 32px;
     padding: 6px;
@@ -43,13 +48,13 @@
 }
 
 /* Action Button Display Rules */
-#main:has(#location-search) #action-buttons #save, 
-#main:has(#location-search) #action-buttons #copy,
-#main:has(#location-search) #action-buttons #search,
-#main:has(.no-locations) #action-buttons #save, 
-#main:has(.no-locations) #action-buttons #copy,
-#main:has(#not-found) #action-buttons #save, 
-#main:has(#not-found) #action-buttons #copy {
+#main:has(#location-search) #header-buttons #save, 
+#main:has(#location-search) #header-buttons #copy,
+#main:has(#location-search) #header-buttons #search,
+#main:has(.no-locations) #header-buttons #save, 
+#main:has(.no-locations) #header-buttons #copy,
+#main:has(#not-found) #header-buttons #save, 
+#main:has(#not-found) #header-buttons #copy {
     display: none;
 }
 
@@ -170,14 +175,34 @@ button#theme-toggle:active {
     background-color: #b1acceb5;
 }
 
-@media (max-width: 480px) {
-    #page #header h1 {
-        font-size: 1.75rem;
+@media (max-width: 600px) {
+    #page #header {
+        flex-direction: column;
+        align-items: stretch;
+        height: unset;
     }
 
-    #action-buttons #save, 
-    #action-buttons #copy,
-    #action-buttons #load {
-        display: none;
+    #page #header h1 {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    #page #header #header-buttons {
+        justify-content: space-between;
+    }
+}
+
+
+@media (max-width: 360px) {
+    #page #header {
+        padding: 0;
+    }
+
+    #page #header #header-buttons {
+        justify-content: center;
+    }
+    
+    #page #header #header-buttons .icon-button {
+        margin: 0px;
     }
 }
