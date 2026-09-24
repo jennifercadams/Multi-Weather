@@ -23,6 +23,7 @@
 #page #header #action-buttons {
     display: flex;
     align-items: center;
+    height: 70px;
 }
 
 #page #header #action-buttons .icon-button {
