@@ -107,9 +107,16 @@ button:hover, .ui-button:hover {
     border-color: var(--button-hover-color);
 }
 
+button:active, .ui-button:active {
+    border-style: inset;
+    transform: translate(0, 2px);
+}
+
 button:disabled, .ui-button:disabled {
     background-color: var(--button-disabled-color);
     border-color: var(--button-disabled-color);
+    border-style: outset;
+    transform: none;
 }
 
 .text-icon-button {
@@ -131,6 +138,10 @@ button.icon-button {
     background-color: unset;
     border: none;
     padding: 0;
+}
+
+button.icon-button:active {
+    transform: none;
 }
 
 button.icon-button img.icon-button-img,

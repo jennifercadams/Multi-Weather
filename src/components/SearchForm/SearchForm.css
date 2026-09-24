@@ -18,6 +18,7 @@
 
 #search-form-container #search-results button {
     border-radius: 0;
+    transform: none;
 }
 
 @media (max-width: 750px) {
