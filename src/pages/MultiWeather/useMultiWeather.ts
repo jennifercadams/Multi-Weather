@@ -49,11 +49,11 @@ const useMultiWeather = () => {
     }, [searchParams]);
 
     const formatRegionString = (region?: string, country?: string): string => {
-        if (region == null && country == null) {
+        if (!region && !country) {
             return "";
-        } else if (region == null && country != null) {
+        } else if (!region && country) {
             return country;
-        } else if (region != null && country == null) {
+        } else if (region && !country) {
             return region;
         } else {
             return [ region, country ].join(", ");
