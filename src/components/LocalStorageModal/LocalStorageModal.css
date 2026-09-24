@@ -59,10 +59,20 @@
     justify-content: space-between;
     border: solid 1px var(--border-color);
     border-radius: 5px;
-    padding: 16px;
     margin: 8px;
 }
 
+.saved-query .query-name {
+    margin-left: 16px;
+}
+
+.saved-query .buttons {
+    gap: 16px;
+}
+
 .saved-query button.icon-button img.icon-button-img {
-    padding: 0 0 0 16px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    margin: 0;
 }

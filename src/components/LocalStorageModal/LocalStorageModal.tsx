@@ -50,7 +50,7 @@ const LocalStorageModal = (props: LocalStorageModalProps) => {
                     {queryNames.map((query, index) => {
                         return (
                             <div className="saved-query" key={`query-${index}`}>
-                                {query}
+                                <p className="query-name">{query}</p>
                                 <div className="buttons">
                                     <button id="load-button" className="icon-button" onClick={() => handleLoad(query)}>
                                         <img className="icon-button-img" src={`/icons/file-import-${colorTheme}.svg`} />
