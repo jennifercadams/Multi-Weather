@@ -9,7 +9,7 @@ export type PageLayoutProps = {
     showActionButtons: boolean;
 };
 
-const PageLayout = (props: PageLayoutProps) => {
+const PageLayout = ({showActionButtons}: PageLayoutProps) => {
     const {
         colorTheme,
         showSaveModal,
@@ -18,12 +18,12 @@ const PageLayout = (props: PageLayoutProps) => {
         setShowLoadModal,
         savedQueries,
         setSavedQueries,
-        showActionButtons,
+        anySearchParams,
         handleCopyToClipboard,
         handleSaveLocal,
         handleLoadLocal,
         handleToggleTheme,
-    } = usePageLayout(props);
+    } = usePageLayout();
 
     const localStorageModalProps: LocalStorageModalProps = {
         colorTheme,
@@ -43,11 +43,11 @@ const PageLayout = (props: PageLayoutProps) => {
                 <div id="header">
                     <h1>MultiWeather</h1>
                     <div id="action-buttons">
-                        {showActionButtons && <>
-                            <Link id="search" className="icon-button tooltip" to="/">
-                                <img className="icon-button-img" src={`/icons/magnifying-glass-${colorTheme}.svg`} />
-                                <span className="tooltip-text hover">Search locations</span>
-                            </Link>
+                        {showActionButtons && <Link id="search" className="icon-button tooltip" to="/">
+                            <img className="icon-button-img" src={`/icons/magnifying-glass-${colorTheme}.svg`} />
+                            <span className="tooltip-text hover">Search locations</span>
+                        </Link>}
+                        {showActionButtons && anySearchParams() && <>
                             <button id="copy" className="icon-button tooltip" onClick={handleCopyToClipboard}>
                                 <img className="icon-button-img" src={`/icons/copy-${colorTheme}.svg`} />
                                 <span className="tooltip-text hover">Copy permalink</span>

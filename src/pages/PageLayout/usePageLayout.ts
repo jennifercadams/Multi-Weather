@@ -1,31 +1,32 @@
 import * as React from "react";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { PageLayoutProps } from "./PageLayout";
 
 const themes = [ "dark", "light" ];
 
-const usePageLayout = (props: PageLayoutProps) => {
+const usePageLayout = () => {
     const localTheme = localStorage.getItem("theme");
     const initialTheme = localTheme != null && themes.includes(localTheme) ? localTheme : "dark";
     const [ colorTheme, setColorTheme ] = useState<string>(initialTheme);
     const [ showSaveModal, setShowSaveModal ] = useState(false);
     const [ showLoadModal, setShowLoadModal ] = useState(false);
     const [ savedQueries, setSavedQueries ] = useState(new Map<string, string>());
-    const [ showActionButtons, setShowActionButtons ] = useState(false);
     const [ searchParams ] = useSearchParams();
 
     useLayoutEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         setShowSaveModal(false);
         setShowLoadModal(false);
-        setShowActionButtons(props.showActionButtons && searchParams.size > 0);
     }, [location.pathname]);
 
     useEffect(() => {
         document.getElementsByTagName("html")[0].setAttribute("data-color-theme", colorTheme);
         localStorage.setItem("theme", colorTheme);
     }, [colorTheme]);
+
+    const anySearchParams = () => {
+        return searchParams.size > 0;
+    };
 
     const handleCopyToClipboard = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         navigator.clipboard.writeText(window.location.href);
@@ -69,7 +70,7 @@ const usePageLayout = (props: PageLayoutProps) => {
         setShowLoadModal,
         savedQueries,
         setSavedQueries,
-        showActionButtons,
+        anySearchParams,
         handleCopyToClipboard,
         handleSaveLocal,
         handleLoadLocal,

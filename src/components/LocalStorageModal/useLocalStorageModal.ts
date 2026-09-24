@@ -50,6 +50,11 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
             return;
         }
 
+        if (searchParams.size == 0) {
+            setError("There are no locations to save.");
+            return;
+        }
+
         try {
             const newMap = new Map(savedQueries);
             newMap.set(saveName, searchParams.toString());
