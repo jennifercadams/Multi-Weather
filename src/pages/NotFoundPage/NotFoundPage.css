@@ -1,0 +1,23 @@
+#not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    margin: auto;
+}
+
+#not-found p.small-text {
+    font-size: 1rem;
+    margin: 0;
+}
+
+#not-found p.xl-text {
+    font-size: 6rem;
+    font-weight: bold;
+    margin: 0 0 16px;
+}
+
+#not-found p.medium-text {
+    font-size: 1.25rem;
+    margin: 0 0 32px;
+}
