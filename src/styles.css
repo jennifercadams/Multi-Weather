@@ -138,6 +138,8 @@ a.icon-button img.icon-button-img {
     width: 24px;
     height: 24px;
     padding: 2px 8px 0;
+    transform: scale(1);
+    will-change: transform;
     transition: 300ms;
 }
 
