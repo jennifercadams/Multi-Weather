@@ -18,6 +18,7 @@ const LocalStorageModal = (props: LocalStorageModalProps) => {
     const {
         saveName,
         savedQueries,
+        error,
         handleClose,
         handleChange,
         handleSave,
@@ -43,10 +44,12 @@ const LocalStorageModal = (props: LocalStorageModalProps) => {
                             <p className="button-text">Save</p>
                         </button>
                     </form>
-                </div>
+                    <p className="error">{error}</p>
+                </div>}
                 {showLoadModal && <div id="load-from-local">
                     <h2>Local Storage</h2>
                     <p>Load or delete saved location sets from your browser&apos;s local storage.</p>
+                    <p className="error">{error}</p>
                     {queryNames.map((query, index) => {
                         return (
                             <div className="saved-query" key={`query-${index}`}>

@@ -9,7 +9,7 @@ export type PageLayoutProps = {
     showActionButtons: boolean;
 };
 
-const PageLayout = ({showActionButtons}: PageLayoutProps) => {
+const PageLayout = (props: PageLayoutProps) => {
     const {
         colorTheme,
         showSaveModal,
@@ -18,11 +18,12 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
         setShowLoadModal,
         savedQueries,
         setSavedQueries,
+        showActionButtons,
         handleCopyToClipboard,
         handleSaveLocal,
         handleLoadLocal,
         handleToggleTheme,
-    } = usePageLayout();
+    } = usePageLayout(props);
 
     const localStorageModalProps: LocalStorageModalProps = {
         colorTheme,

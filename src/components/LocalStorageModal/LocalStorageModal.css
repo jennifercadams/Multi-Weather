@@ -49,6 +49,11 @@
     line-height: 1.4;
 }
 
+#local-storage-modal .error {
+    height: 22px;
+    margin-bottom: 0;
+}
+
 #local-storage-modal #save-form {
     margin-top: 32px;
 }
