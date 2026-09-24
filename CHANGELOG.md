@@ -1,5 +1,16 @@
 # Changelog
 
+## Version 1.0.0 (24 Sept 2026)
+
+- Major improvements to styling, layout, UI/UX, and responsiveness.
+- Added dark and light themes. Theme selection is saved to local storage.
+- Added additional datetime, location, and weather data.
+- Added loading messages.
+- Added error handling.
+- New features:
+    - Button to copy permalink to clipboard.
+    - Saving and retrieving location sets from local storage.
+
 ## Version 0.2.4 (13 Sept 2026)
 
 - Minor CSS improvements
