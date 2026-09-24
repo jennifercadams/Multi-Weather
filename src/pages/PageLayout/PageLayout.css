@@ -25,10 +25,14 @@
     align-items: center;
 }
 
+#page #header #action-buttons .icon-button {
+    margin: 6px;
+}
+
 #page #header #action-buttons .icon-button-img {
     width: 32px;
     height: 32px;
-    padding: 2px 12px 0;
+    padding: 6px;
 }
 
 #page #header #theme-toggle {
@@ -53,7 +57,7 @@
     transition-delay: 0s;
     transition-property: visibility;
     position: absolute;
-    top: 120%;
+    top: 110%;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--tooltip-bg-color);
