@@ -36,20 +36,6 @@
     padding: 6px;
 }
 
-#page #header #theme-toggle {
-    display: flex;
-    justify-content: space-between;
-    width: 84px;
-    height: 44px;
-    padding: 8px 6px 8px 10px;
-    background-color: unset;
-    border: none;
-}
-
-button#theme-toggle:active {
-    transform: none;
-}
-
 #page #main {
     display: flex;
     flex-direction: column;
@@ -111,6 +97,21 @@ img.tooltip-icon {
 }
 
 /* Theme Toggle */
+
+#page #header #theme-toggle {
+    display: flex;
+    justify-content: space-between;
+    width: 84px;
+    height: 44px;
+    padding: 8px 6px 8px 10px;
+    background-color: unset;
+    border: none;
+}
+
+button#theme-toggle:active {
+    transform: none;
+}
+
 #page #header #theme-toggle:hover {
     background-color: #b1acce2c;
 }
