@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import LocalStorageModal, { LocalStorageModalProps } from "~components/LocalStorageModal/LocalStorageModal";
 import { PageContextType, PageContext } from "./usePageContext";
 import usePageLayout from "./usePageLayout";
@@ -44,6 +44,10 @@ const PageLayout = (props: PageLayoutProps) => {
                     <h1>MultiWeather</h1>
                     <div id="action-buttons">
                         {showActionButtons && <>
+                            <Link id="search" className="icon-button tooltip" to="/">
+                                <img className="icon-button-img" src={`/icons/magnifying-glass-${colorTheme}.svg`} />
+                                <span className="tooltip-text hover">Search locations</span>
+                            </Link>
                             <button id="copy" className="icon-button tooltip" onClick={handleCopyToClipboard}>
                                 <img className="icon-button-img" src={`/icons/copy-${colorTheme}.svg`} />
                                 <span className="tooltip-text hover">Copy permalink</span>
