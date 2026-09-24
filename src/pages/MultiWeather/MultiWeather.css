@@ -1,6 +1,7 @@
 #multi-weather {
     display: flex;
     flex-direction: column;
+    flex: 100%;
     padding: 0px 24px 16px;
     box-sizing: border-box;
 }
@@ -23,7 +24,7 @@
     box-shadow: 0px 0px 4px 1px var(--border-color);
     border-radius: 5px;
     padding: 32px 48px;
-    margin: 100px auto;
+    margin: auto;
 }
 
 .no-locations h2 {

@@ -49,6 +49,12 @@ button#theme-toggle:active {
     transform: none;
 }
 
+#page #main {
+    display: flex;
+    flex-direction: column;
+    flex: 100%;
+}
+
 /* Tooltip */
 .tooltip {
     position: relative;
