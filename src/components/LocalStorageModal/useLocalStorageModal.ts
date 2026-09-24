@@ -37,7 +37,7 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
     };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const filtered = event.target.value.replace(/[^a-zA-Z0-9]/g, '');
+        const filtered = event.target.value.replace(/[^ a-zA-Z0-9]/g, '');
         setSaveName(filtered);
         setError("");
     };
