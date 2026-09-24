@@ -55,10 +55,10 @@ const LocalStorageModal = (props: LocalStorageModalProps) => {
                             <div className="saved-query" key={`query-${index}`}>
                                 <p className="query-name">{query}</p>
                                 <div className="buttons">
-                                    <button id="load-button" className="icon-button" onClick={() => handleLoad(query)}>
+                                    <button id="load-query" className="icon-button" onClick={() => handleLoad(query)}>
                                         <img className="icon-button-img" src={`/icons/file-import-${colorTheme}.svg`} />
                                     </button>
-                                    <button id="delete-button" className="icon-button" onClick={() => handleDelete(query)}>
+                                    <button id="delete-query" className="icon-button" onClick={() => handleDelete(query)}>
                                         <img className="icon-button-img" src={`/icons/trash-can-${colorTheme}.svg`} />
                                     </button>
                                 </div>
