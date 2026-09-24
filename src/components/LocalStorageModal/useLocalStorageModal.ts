@@ -11,6 +11,7 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
 
     const {
         setShowSaveModal,
+        showLoadModal,
         setShowLoadModal,
         savedQueries,
         setSavedQueries,
@@ -22,12 +23,25 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
     }, [location.pathname]);
 
     useEffect(() => {
-        const queriesJson = localStorage.getItem("savedQueries");
-        if (queriesJson) {
-            const queriesMap = new Map<string, string>(Object.entries(JSON.parse(queriesJson)));
-            setSavedQueries(queriesMap);
-        };
+        try {
+            const queriesJson = localStorage.getItem("savedQueries");
+            if (queriesJson) {
+                const queriesMap = new Map<string, string>(Object.entries(JSON.parse(queriesJson)));
+                setSavedQueries(queriesMap);
+            };
+        } catch (error) {
+            console.error("Error retrieving local storage:", error);
+            setError(unexpectedError);
+        }
     }, []);
+
+    useEffect(() => {
+        if (showLoadModal && savedQueries.size == 0) {
+            setError("No saved location sets found.");
+        } else if (!showLoadModal) {
+            setError("");
+        }
+    }, [showLoadModal]);
 
     const handleClose = () => {
         setShowSaveModal(false);
