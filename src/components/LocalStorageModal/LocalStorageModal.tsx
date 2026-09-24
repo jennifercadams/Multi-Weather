@@ -38,7 +38,7 @@ const LocalStorageModal = (props: LocalStorageModalProps) => {
                     <h2>Save to Local Storage</h2>
                     <p>Enter a name to save the current set of locations to your browser&apos;s local storage.</p>
                     <form id="save-form" onSubmit={handleSave}>
-                        <input id="save-name" className={colorTheme} type="text" value={saveName} onChange={handleChange} />
+                        <input id="save-name" className={colorTheme} type="text" value={saveName} onChange={handleChange} autoFocus />
                         <button id="save-button" className="text-icon-button" type="submit">
                             <img className="icon" src={`/icons/save-${colorTheme}.svg`} />
                             <p className="button-text">Save</p>
