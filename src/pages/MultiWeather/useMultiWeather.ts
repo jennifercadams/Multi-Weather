@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { LocationPanelPlaceholderProps, LocationPanelProps } from "~components/LocationPanel/LocationPanel";
+import { LocationPanelErrorProps, LocationPanelPlaceholderProps, LocationPanelProps } from "~components/LocationPanel/LocationPanel";
 import usePageContext, { PageContextType, PageContext } from "~pages/PageLayout/usePageContext";
 import { ApiService, Forecast } from "~services/ApiService";
 
@@ -145,6 +145,14 @@ const useMultiWeather = () => {
         };
     };
 
+    const getLocationPanelErrorProps = (location: Forecast): LocationPanelErrorProps => {
+        return {
+            locationQuery: location.LocationQuery,
+            locationName: location.LocationName || "",
+            errorMessage: `No location found for search query "${location.LocationQuery}".`,
+        };
+    };
+
     const getLocationPanelPlaceholderProps = (location: string): LocationPanelPlaceholderProps => {
         const name = location.substring(0, location.indexOf(','));
         return {
@@ -159,6 +167,7 @@ const useMultiWeather = () => {
         locationNames,
         locations,
         getLocationPanelProps,
+        getLocationPanelErrorProps,
         getLocationPanelPlaceholderProps,
         handleLoadLocal,
     };

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router";
-import { LocationPanel, LocationPanelPlaceholder } from "~components/LocationPanel/LocationPanel";
+import { LocationPanel, LocationPanelError, LocationPanelPlaceholder } from "~components/LocationPanel/LocationPanel";
 import useMultiWeather from "./useMultiWeather";
 import "./MultiWeather.css";
 
@@ -11,6 +11,7 @@ const MultiWeather = () => {
         locationNames,
         locations,
         getLocationPanelProps,
+        getLocationPanelErrorProps,
         getLocationPanelPlaceholderProps,
         handleLoadLocal,
     } = useMultiWeather();
@@ -24,8 +25,13 @@ const MultiWeather = () => {
             {!isLoading && locations != null && <div className="location-container">
                 {locations.map((location, index) => {
                     const key = `LocationPanel${index}`;
-                    const locationPanelProps = getLocationPanelProps(location);
-                    return <LocationPanel key={key} {...locationPanelProps}/>;
+                    if (location.LocationFound) {
+                        const locationPanelProps = getLocationPanelProps(location);
+                        return <LocationPanel key={key} {...locationPanelProps} />;
+                    } else {
+                        const locationPanelErrorProps = getLocationPanelErrorProps(location);
+                        return <LocationPanelError key={key} {...locationPanelErrorProps} />;
+                    }
                 })}
             </div>}
             {isLoading && <div className="location-container">

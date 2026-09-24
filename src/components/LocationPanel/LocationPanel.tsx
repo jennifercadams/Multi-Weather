@@ -63,6 +63,21 @@ const LocationPanel = (props: LocationPanelProps) => {
     );
 };
 
+export type LocationPanelErrorProps = {
+    locationQuery: string;
+    locationName: string;
+    errorMessage: string;
+};
+
+const LocationPanelError = (props: LocationPanelErrorProps) => {
+    return (
+        <div className="location-panel">
+            <h2 className="location-name">{props.locationName || props.locationQuery}</h2>
+            <p className="error">{props.errorMessage}</p>
+        </div>
+    );
+};
+
 export type LocationPanelPlaceholderProps = {
     colorTheme: string;
     locationName: string;
@@ -77,4 +92,4 @@ const LocationPanelPlaceholder = (props: LocationPanelPlaceholderProps) => {
     );
 };
 
-export { LocationPanel, LocationPanelPlaceholder };
+export { LocationPanel, LocationPanelError, LocationPanelPlaceholder };
