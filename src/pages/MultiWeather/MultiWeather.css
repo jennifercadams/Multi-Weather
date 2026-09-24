@@ -46,7 +46,8 @@
 
 .no-locations .buttons .text-icon-button {
     justify-content: center;
-    width: 120px;
+    flex: 1 1 120px;
+    max-width: 120px;
     box-sizing: content-box;
 }
 
