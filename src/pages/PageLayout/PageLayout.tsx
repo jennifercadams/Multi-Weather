@@ -5,11 +5,7 @@ import { PageContextType, PageContext } from "./usePageContext";
 import usePageLayout from "./usePageLayout";
 import "./PageLayout.css";
 
-export type PageLayoutProps = {
-    showActionButtons: boolean;
-};
-
-const PageLayout = ({showActionButtons}: PageLayoutProps) => {
+const PageLayout = () => {
     const {
         colorTheme,
         showSaveModal,
@@ -18,7 +14,6 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
         setShowLoadModal,
         savedQueries,
         setSavedQueries,
-        anySearchParams,
         handleCopyToClipboard,
         handleSaveLocal,
         handleLoadLocal,
@@ -43,24 +38,22 @@ const PageLayout = ({showActionButtons}: PageLayoutProps) => {
                 <div id="header">
                     <h1>MultiWeather</h1>
                     <div id="action-buttons">
-                        {showActionButtons && <Link id="search" className="icon-button tooltip" to="/">
+                        <Link id="search" className="icon-button tooltip" to="/">
                             <img className="icon-button-img" src={`/icons/magnifying-glass-${colorTheme}.svg`} />
                             <span className="tooltip-text hover">Search locations</span>
-                        </Link>}
-                        {showActionButtons && anySearchParams() && <>
-                            <button id="copy" className="icon-button tooltip" onClick={handleCopyToClipboard}>
-                                <img className="icon-button-img" src={`/icons/copy-${colorTheme}.svg`} />
-                                <span className="tooltip-text hover">Copy permalink</span>
-                                <span className="tooltip-text active">
-                                    <img className="tooltip-icon" src={`/icons/checkmark-${colorTheme}.svg`} />
-                                    Copied
-                                </span>
-                            </button>
-                            <button id="save" className="icon-button tooltip" onClick={handleSaveLocal}>
-                                <img className="icon-button-img" src={`/icons/save-${colorTheme}.svg`} />
-                                <span className="tooltip-text hover">Save to local</span>
-                            </button>
-                        </>}
+                        </Link>
+                        <button id="copy" className="icon-button tooltip" onClick={handleCopyToClipboard}>
+                            <img className="icon-button-img" src={`/icons/copy-${colorTheme}.svg`} />
+                            <span className="tooltip-text hover">Copy permalink</span>
+                            <span className="tooltip-text active">
+                                <img className="tooltip-icon" src={`/icons/checkmark-${colorTheme}.svg`} />
+                                Copied
+                            </span>
+                        </button>
+                        <button id="save" className="icon-button tooltip" onClick={handleSaveLocal}>
+                            <img className="icon-button-img" src={`/icons/save-${colorTheme}.svg`} />
+                            <span className="tooltip-text hover">Save to local</span>
+                        </button>
                         <button id="load" className="icon-button tooltip" onClick={handleLoadLocal}>
                             <img className="icon-button-img" src={`/icons/folder-${colorTheme}.svg`} />
                             <span className="tooltip-text hover">Load from local</span>

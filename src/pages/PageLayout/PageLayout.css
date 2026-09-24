@@ -42,6 +42,17 @@
     flex: 100%;
 }
 
+/* Action Button Display Rules */
+#main:has(#location-search) #action-buttons #save, 
+#main:has(#location-search) #action-buttons #copy,
+#main:has(#location-search) #action-buttons #search,
+#main:has(.no-locations) #action-buttons #save, 
+#main:has(.no-locations) #action-buttons #copy,
+#main:has(#not-found) #action-buttons #save, 
+#main:has(#not-found) #action-buttons #copy {
+    display: none;
+}
+
 /* Tooltip */
 .tooltip {
     position: relative;

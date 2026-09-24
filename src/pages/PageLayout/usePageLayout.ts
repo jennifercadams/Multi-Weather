@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useEffect, useLayoutEffect, useState } from "react";
-import { useSearchParams } from "react-router";
 
 const themes = [ "dark", "light" ];
 
@@ -11,7 +10,6 @@ const usePageLayout = () => {
     const [ showSaveModal, setShowSaveModal ] = useState(false);
     const [ showLoadModal, setShowLoadModal ] = useState(false);
     const [ savedQueries, setSavedQueries ] = useState(new Map<string, string>());
-    const [ searchParams ] = useSearchParams();
 
     useLayoutEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -23,10 +21,6 @@ const usePageLayout = () => {
         document.getElementsByTagName("html")[0].setAttribute("data-color-theme", colorTheme);
         localStorage.setItem("theme", colorTheme);
     }, [colorTheme]);
-
-    const anySearchParams = () => {
-        return searchParams.size > 0;
-    };
 
     const handleCopyToClipboard = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         navigator.clipboard.writeText(window.location.href);
@@ -70,7 +64,6 @@ const usePageLayout = () => {
         setShowLoadModal,
         savedQueries,
         setSavedQueries,
-        anySearchParams,
         handleCopyToClipboard,
         handleSaveLocal,
         handleLoadLocal,
