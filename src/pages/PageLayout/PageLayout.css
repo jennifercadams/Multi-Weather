@@ -16,6 +16,15 @@
     height: 70px;
     box-sizing: border-box;
 }
+
+#page #header a {
+    text-decoration: none;
+}
+
+#page #header a:hover {
+    color: var(--primary-text-color);
+}
+
 #page #header h1 {
     margin: 17px 0;
 }

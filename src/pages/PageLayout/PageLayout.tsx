@@ -36,7 +36,7 @@ const PageLayout = () => {
         <div id="page">
             <div id="main">
                 <div id="header">
-                    <h1>MultiWeather</h1>
+                    <h1><Link to="/">MultiWeather</Link></h1>
                     <div id="header-buttons">
                         <div id="action-buttons">
                             <Link id="search" className="icon-button tooltip" to="/">
