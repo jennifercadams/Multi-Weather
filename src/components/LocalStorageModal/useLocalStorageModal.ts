@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useLayoutEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { LocalStorageModalProps } from "./LocalStorageModal";
 
@@ -10,17 +10,13 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
     const navigate = useNavigate();
 
     const {
+        showSaveModal,
         setShowSaveModal,
         showLoadModal,
         setShowLoadModal,
         savedQueries,
         setSavedQueries,
     } = props;
-
-    useLayoutEffect(() => {
-        setSaveName("");
-        setError("");
-    }, [location.pathname]);
 
     useEffect(() => {
         try {
@@ -41,7 +37,10 @@ const useLocalStorageModal = (props: LocalStorageModalProps) => {
         } else if (!showLoadModal) {
             setError("");
         }
-    }, [showLoadModal]);
+        if (!showSaveModal) {
+            setSaveName("");
+        }
+    }, [showSaveModal, showLoadModal]);
 
     const handleClose = () => {
         setShowSaveModal(false);
