@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 1.1.0 (25 Sept 2026)
+
+- Improvements to styling and responsiveness
+- Added 404 page
+
 ## Version 1.0.0 (24 Sept 2026)
 
 - Major improvements to styling, layout, UI/UX, and responsiveness.

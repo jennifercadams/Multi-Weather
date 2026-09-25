@@ -26,15 +26,9 @@ Weather data is provided by WeatherAPI.com.
 
 This is a hobby project and the back end is currently hosted using a free service. If the back end service is idle for a certain period of time, it will sleep until another request is made. This means that sometimes search results or weather data may take up to a minute to load.
 
-## Version 1.0.0 (24 Sept 2026)
+## Version 1.1.0 (25 Sept 2026)
 
-- Major improvements to styling, layout, UI/UX, and responsiveness.
-- Added dark and light themes. Theme selection is saved to local storage.
-- Added additional datetime, location, and weather data.
-- Added loading messages.
-- Added error handling.
-- New features:
-    - Button to copy permalink to clipboard.
-    - Saving and retrieving location sets from local storage.
+- Improvements to styling and responsiveness
+- Added 404 page
 
 [View full changelog](CHANGELOG.md)
