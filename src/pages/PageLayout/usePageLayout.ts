@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useEffect, useLayoutEffect, useState } from "react";
+import { useLocation } from 'react-router';
 
 const themes = [ "dark", "light" ];
 
@@ -10,6 +11,7 @@ const usePageLayout = () => {
     const [ showSaveModal, setShowSaveModal ] = useState(false);
     const [ showLoadModal, setShowLoadModal ] = useState(false);
     const [ savedQueries, setSavedQueries ] = useState(new Map<string, string>());
+    const location = useLocation();
 
     useLayoutEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
