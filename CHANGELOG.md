@@ -1,9 +1,10 @@
 # Changelog
 
-## Version 1.1.0 (25 Sept 2026)
+## Version 1.1.1 (25 Sept 2026)
 
-- Improvements to styling and responsiveness
+- Fixed bug where save/load modals did not close when using back/forward button
 - Added 404 page
+- Improvements to styling and responsiveness
 
 ## Version 1.0.0 (24 Sept 2026)
 

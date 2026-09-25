@@ -26,9 +26,10 @@ Weather data is provided by WeatherAPI.com.
 
 This is a hobby project and the back end is currently hosted using a free service. If the back end service is idle for a certain period of time, it will sleep until another request is made. This means that sometimes search results or weather data may take up to a minute to load.
 
-## Version 1.1.0 (25 Sept 2026)
+## Version 1.1.1 (25 Sept 2026)
 
-- Improvements to styling and responsiveness
+- Fixed bug where save/load modals did not close when using back/forward button
 - Added 404 page
+- Improvements to styling and responsiveness
 
 [View full changelog](CHANGELOG.md)
