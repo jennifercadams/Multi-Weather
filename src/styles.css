@@ -183,7 +183,17 @@ a.icon-button img.icon-button-img:hover {
     transition-property: visibility;
 }
 
+.spinner {
+    animation: spin 1.5s linear infinite, fade-in-out 1.5s linear infinite;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+@keyframes fade-in-out {
+    0% { opacity: 10%; }
+    50% { opacity: 100%; }
+    100% { opacity: 10%; }
 }

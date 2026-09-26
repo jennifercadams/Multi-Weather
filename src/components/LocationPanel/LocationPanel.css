@@ -83,11 +83,4 @@ img.condition-icon {
 .location-panel.placeholder .spinner {
     width: 120px;
     margin-top: 88px;
-    animation: spin 1.5s linear infinite, fade-in-out 1.5s linear infinite;
-}
-
-@keyframes fade-in-out {
-    0% { opacity: 10%; }
-    50% { opacity: 100%; }
-    100% { opacity: 10%; }
 }

@@ -6,10 +6,6 @@
     line-height: 1.4;
 }
 
-#search-form .spinner {
-    animation: spin 1.5s linear infinite;
-}
-
 #search-results {
     display: flex;
     flex-direction: column;
