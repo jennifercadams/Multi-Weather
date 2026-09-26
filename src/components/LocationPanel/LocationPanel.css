@@ -72,15 +72,10 @@ img.condition-icon {
 .location-panel.placeholder {
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 372.8px;
-}
-
-.location-panel.placeholder .location-name {
-    width: 280px;
 }
 
 .location-panel.placeholder .spinner {
     width: 120px;
-    margin-top: 88px;
+    margin: 88px auto;
 }
