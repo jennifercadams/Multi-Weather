@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.1.2 (26 Sept 2026)
+
+- Fixed bug where close button on save/load modals did not display on mobile
+- Other minor css improvements for mobile friendliness and consistency
+- Added open graph metadata
+
 ## Version 1.1.1 (25 Sept 2026)
 
 - Fixed bug where save/load modals did not close when using back/forward button
