@@ -115,10 +115,12 @@ img.tooltip-icon {
     border-color: transparent transparent var(--tooltip-bg-color) transparent;
 }
 
-.tooltip:hover .tooltip-text.hover {
-    visibility: visible;
-    transition-delay: 0.3s;
-    transition-property: visibility;
+@media (hover: hover) {
+    .tooltip:hover .tooltip-text.hover {
+        visibility: visible;
+        transition-delay: 0.3s;
+        transition-property: visibility;
+    }
 }
 
 /* Theme Toggle */
@@ -137,8 +139,10 @@ button#theme-toggle:active {
     transform: none;
 }
 
-#page #header #theme-toggle:hover {
-    background-color: #b1acce2c;
+@media (hover: hover) {
+    #page #header #theme-toggle:hover {
+        background-color: #b1acce2c;
+    }
 }
 
 #page #header #theme-toggle img {
